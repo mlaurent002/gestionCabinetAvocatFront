@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UtilisateurComponent } from 'app/pages/utilisateur/utilisateur.component';
 import { AffaireService } from 'app/services/affaire.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AffaireComponent } from 'app/pages/affaire/affaire.component';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    UtilisateurComponent
+    UtilisateurComponent,
   ],
 
   providers: [

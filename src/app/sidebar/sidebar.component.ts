@@ -10,7 +10,8 @@ export interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
 
-    //{ path: '/affaire', title: 'Affaires', icon: 'nc-box', class: '' },
+    { path: '/affaire', title: 'Affaires', icon: 'nc-box', class: '' },
+    { path: '/utilisateur', title: 'Utilisateurs', icon: 'nc-single-02', class: '' },
     { path: '/dashboard', title: 'Dashboard', icon: 'nc-bank', class: '' },
     { path: '/icons', title: 'Icons', icon: 'nc-diamond', class: '' },
     { path: '/maps', title: 'Maps', icon: 'nc-pin-3', class: '' },
@@ -19,7 +20,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/table', title: 'Table List', icon: 'nc-tile-56', class: '' },
     { path: '/typography', title: 'Typography', icon: 'nc-caps-small', class: '' },
     { path: '/upgrade', title: 'Upgrade to PRO', icon: 'nc-spaceship', class: 'active-pro' },
-    //{ path: '/utilisateur', title: 'Gestion des utilisateurs', icon: 'nc-diamond', class: '' },
+
 
 ];
 
