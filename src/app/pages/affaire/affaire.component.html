@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-user">
+            <div class="card-header">
+                <h5 class="card-title">Ajouter une affaire</h5>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="saveAffaire()">
+                    <div class="row">
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Référence</label>
+                                <input type="text" class="form-control" [(ngModel)]="affaire.reference" name="reference"
+                                    placeholder="Référence">
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-1">
+                            <div class="form-group">
+                                <label>Titre</label>
+                                <input type="text" class="form-control" [(ngModel)]="affaire.titre" name="titre"
+                                    placeholder="Titre">
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" [(ngModel)]="affaire.description" name="description"
+                                    placeholder="Description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Statut</label>
+                                <input type="number" class="form-control" [(ngModel)]="affaire.statut" name="statut"
+                                    placeholder="Statut">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                            <button type="submit" class="btn btn-primary btn-round">Ajouter</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Affichage liste-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Liste des affaires</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>Référence</th>
+                            <th>Titre</th>
+                            <th>Description</th>
+                            <th>Statut</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let a of affaires">
+                                <td>{{a.reference}}</td>
+                                <td>{{a.titre}}</td>
+                                <td>{{a.description}}</td>
+                                <td>{{a.statut}}</td>
+                                <td>
+                                    <button class="btn btn-primary btn-round"
+                                        (click)="deleteAffaire(a.idAffaire)">Delete</button>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
