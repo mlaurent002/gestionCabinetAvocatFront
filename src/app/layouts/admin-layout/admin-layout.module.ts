@@ -13,10 +13,11 @@ import { IconsComponent } from '../../pages/icons/icons.component';
 import { MapsComponent } from '../../pages/maps/maps.component';
 import { NotificationsComponent } from '../../pages/notifications/notifications.component';
 import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UtilisateurComponent } from 'app/pages/utilisateur/utilisateur.component';
 import { AffaireService } from 'app/services/affaire.service';
 import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   imports: [
@@ -35,10 +36,13 @@ import { HttpClientModule } from '@angular/common/http';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    UtilisateurComponent
   ],
+
   providers: [
     AffaireService,
   ],
+
 })
 
 export class AdminLayoutModule { }
