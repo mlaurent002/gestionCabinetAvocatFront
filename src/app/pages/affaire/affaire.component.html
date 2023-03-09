@@ -49,6 +49,8 @@
     </div>
 </div>
 
+
+
 <!--Affichage liste-->
 <div class="row">
     <div class="col-md-12">
@@ -57,6 +59,23 @@
                 <h4 class="card-title">Liste des affaires</h4>
             </div>
             <div class="card-body">
+                <!--Recherche-->
+                <form (ngSubmit)="onSubmit()">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="form-group">
+                                <label>Référence</label>
+                                <input type="text" class="form-control" [(ngModel)]="reference" name="reference"
+                                    placeholder="Référence">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-round">Recherche</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--Fin Recherche-->
+
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
@@ -67,7 +86,7 @@
                             <th>Action</th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let a of affaires">
+                            <tr *ngFor="let a of affairesRecherche">
                                 <td>{{a.reference}}</td>
                                 <td>{{a.titre}}</td>
                                 <td>{{a.description}}</td>

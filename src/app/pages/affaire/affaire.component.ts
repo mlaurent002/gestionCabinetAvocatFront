@@ -12,7 +12,7 @@ export class AffaireComponent implements OnInit {
 
   affaires!: any[];
 
-  //Recherche 1
+  //Recherche 2
   affairesRecherche: any;
   reference: string;
 
@@ -20,16 +20,22 @@ export class AffaireComponent implements OnInit {
 
   ngOnInit(): void {
     //this.findAllAffaires();
-    //Recherche 2
+    //Recherche 3
     this.reference = '';
     this.findByReference();
   }
-
-  findAllAffaires() {
-    this.affaireService.findAll().subscribe(data => { this.affaires = data; });
+  //Recherche 6
+  onSubmit() {
+    this.findByReference();
   }
 
-  //Recherche 3
+  //Recherche 5
+  /*
+  findAllAffaires() {
+    this.affaireService.findAll().subscribe(data => { this.affaires = data; });
+  }*/
+
+  //Recherche 4
   findByReference() {
     this.affaireService.findByReference(this.reference).subscribe(data => { this.affairesRecherche = data; });
   }
@@ -37,12 +43,13 @@ export class AffaireComponent implements OnInit {
   saveAffaire() {
     this.affaireService.save(this.affaire).subscribe(
       () => {
-        this.findAllAffaires();
+        //this.findAllAffaires();
+        this.findByReference();
         this.affaire = new Affaire();
       });
   }
 
   deleteAffaire(id: number) {
-    this.affaireService.delete(id).subscribe(() => { this.findAllAffaires(); });
+    this.affaireService.delete(id).subscribe(() => { /*this.findAllAffaires()*/ this.findByReference(); });
   }
 }
