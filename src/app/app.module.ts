@@ -12,12 +12,15 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AffaireComponent } from './pages/affaire/affaire.component';
+import { FormsModule } from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    AffaireComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -28,7 +31,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
-    FixedPluginModule
+    FixedPluginModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
