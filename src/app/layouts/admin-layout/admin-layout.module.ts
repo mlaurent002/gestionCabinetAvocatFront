@@ -24,6 +24,7 @@ import { AppService } from 'app/app.service';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginComponent } from 'app/pages/login/login.component';
+import { TachesComponent } from 'app/pages/taches/taches.component';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -53,7 +54,9 @@ export class XhrInterceptor implements HttpInterceptor {
     MapsComponent,
     NotificationsComponent,
     UtilisateurComponent,
-    LoginComponent
+    LoginComponent,
+    TachesComponent,
+    AffaireComponent,
   ],
 
   providers: [

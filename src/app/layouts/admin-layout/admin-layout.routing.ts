@@ -22,6 +22,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications', component: NotificationsComponent },
     { path: 'upgrade', component: UpgradeComponent },
     { path: 'utilisateur', component: UtilisateurComponent },
-    { path: 'affaire', component: AffaireComponent }
+    { path: 'affaire', component: AffaireComponent },
     { path: 'login', component: LoginComponent }
 ];
