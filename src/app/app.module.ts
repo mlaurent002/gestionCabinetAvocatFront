@@ -15,6 +15,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { TachesComponent } from './pages/taches/taches.component';
 import { AffaireComponent } from './pages/affaire/affaire.component';
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { FormsModule } from "@angular/forms";
   ],
   imports: [
     BrowserAnimationsModule,
+    FormsModule,
     RouterModule.forRoot(AppRoutes, {
       useHash: true
     }),
@@ -34,7 +36,8 @@ import { FormsModule } from "@angular/forms";
     ToastrModule.forRoot(),
     FooterModule,
     FixedPluginModule,
-    FormsModule,
+    FormsModule, ,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
