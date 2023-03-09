@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { TachesComponent } from './pages/taches/taches.component';
+import { AffaireComponent } from './pages/affaire/affaire.component';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
@@ -19,7 +21,9 @@ import { HttpClientModule } from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    TachesComponent,
+    AffaireComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -32,6 +36,7 @@ import { HttpClientModule } from "@angular/common/http";
     ToastrModule.forRoot(),
     FooterModule,
     FixedPluginModule,
+    FormsModule, ,
     HttpClientModule
   ],
   providers: [],

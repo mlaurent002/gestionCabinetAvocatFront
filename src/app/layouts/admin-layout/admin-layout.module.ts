@@ -15,6 +15,11 @@ import { NotificationsComponent } from '../../pages/notifications/notifications.
 import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UtilisateurComponent } from 'app/pages/utilisateur/utilisateur.component';
+import { AffaireService } from 'app/services/affaire.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AffaireComponent } from 'app/pages/affaire/affaire.component';
+
 import { AppService } from 'app/app.service';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -35,7 +40,8 @@ export class XhrInterceptor implements HttpInterceptor {
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
   ],
   declarations: [
     DashboardComponent,
@@ -46,12 +52,15 @@ export class XhrInterceptor implements HttpInterceptor {
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    UtilisateurComponent,
     LoginComponent
   ],
+
   providers: [
+    AffaireService,
     AppService,
     { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }
-  ]
+  ],
 })
 
 export class AdminLayoutModule { }
