@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Utilisateur } from 'app/models/utilisateur';
 import { RoleService } from 'app/services/role.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
-//import { AppService } from 'app/app.service';
+import { AppService } from 'app/app.service';
 
 @Component({
   selector: 'app-utilisateur',
@@ -17,7 +17,7 @@ export class UtilisateurComponent implements OnInit {
   currentFileUpload?: File;
   utilisateur: Utilisateur = new Utilisateur();
 
-  constructor(private utilisateurService: UtilisateurService, private roleService: RoleService, /*private appService: AppService,*/ private router: Router) {
+  constructor(private utilisateurService: UtilisateurService, private roleService: RoleService, private appService: AppService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -46,5 +46,15 @@ export class UtilisateurComponent implements OnInit {
       }
     )
   }
+
+  editUtilisateur(utilisateur: Utilisateur) {
+    // localStorage : créer un attribut (name="editUserId") dans le navigateur et lui affecter une valeur (ediUserId= idUtilisateur) 
+    // étape 1 : MAJ du composant 
+    localStorage.removeItem("editUtilisateurId");
+    // étape 2 : Séleectionner une ligne 
+    localStorage.setItem("editUtilisateurId", utilisateur.idUtilisateur.toString());
+    this.router.navigate(['/editUtilisateur', utilisateur.idUtilisateur]);
+  }
+
   //Authenticated et authorities ? 
 }
