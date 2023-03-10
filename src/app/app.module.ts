@@ -15,6 +15,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TachesComponent } from './pages/taches/taches.component';
 import { HttpClientModule } from "@angular/common/http";
+import { TribunauxComponent } from './pages/tribunaux/tribunaux.component';
 import { EditAffaireComponent } from './pages/edit/edit-affaire/edit-affaire.component';
 
 
@@ -23,8 +24,6 @@ import { EditAffaireComponent } from './pages/edit/edit-affaire/edit-affaire.com
     AppComponent,
     AdminLayoutComponent,
     EditAffaireComponent,
-
-
 
   ],
   imports: [

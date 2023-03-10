@@ -27,6 +27,8 @@ import { LoginComponent } from 'app/pages/login/login.component';
 import { TachesComponent } from 'app/pages/taches/taches.component';
 import { LogoutComponent } from 'app/pages/logout/logout.component';
 import { TacheService } from 'app/services/tache.service';
+import { TribunauxComponent } from 'app/pages/tribunaux/tribunaux.component';
+import { TribunalService } from 'app/services/tribunal.service';
 
 
 @Injectable()
@@ -61,11 +63,13 @@ export class XhrInterceptor implements HttpInterceptor {
     LogoutComponent,
     TachesComponent,
     AffaireComponent,
+    TribunauxComponent,
   ],
 
   providers: [
     AffaireService,
     TacheService,
+    TribunalService,
     AppService,
     { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }
   ],
