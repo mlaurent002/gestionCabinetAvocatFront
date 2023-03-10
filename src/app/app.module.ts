@@ -23,7 +23,7 @@ import { EditAffaireComponent } from './pages/edit/edit-affaire/edit-affaire.com
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    EditAffaireComponent,
+
 
   ],
   imports: [

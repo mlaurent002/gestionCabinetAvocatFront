@@ -1,7 +1,7 @@
 import { Injectable, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
 
@@ -29,6 +29,7 @@ import { LogoutComponent } from 'app/pages/logout/logout.component';
 import { TacheService } from 'app/services/tache.service';
 import { TribunauxComponent } from 'app/pages/tribunaux/tribunaux.component';
 import { TribunalService } from 'app/services/tribunal.service';
+import { EditAffaireComponent } from 'app/pages/edit/edit-affaire/edit-affaire.component';
 
 
 @Injectable()
@@ -48,6 +49,7 @@ export class XhrInterceptor implements HttpInterceptor {
     FormsModule,
     NgbModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     DashboardComponent,
@@ -64,6 +66,7 @@ export class XhrInterceptor implements HttpInterceptor {
     TachesComponent,
     AffaireComponent,
     TribunauxComponent,
+    EditAffaireComponent,
   ],
 
   providers: [
