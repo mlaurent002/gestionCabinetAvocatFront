@@ -65,6 +65,7 @@ export class AffaireComponent implements OnInit {
   // Authentification
   authenticated() {
     return this.appService.authenticated; // authenticated = false par défaut
+  }
 
   //Affichage du statut en string
   convertStatusToString(status: number): string {
