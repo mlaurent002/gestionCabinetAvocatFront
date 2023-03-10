@@ -61,6 +61,12 @@ export class AffaireComponent implements OnInit {
     this.affaireService.delete(id).subscribe(() => { /*this.findAllAffaires()*/ this.findByReference(); });
   }
 
+  editAffaire(affaire: Affaire) {
+    localStorage.removeItem("editAffaireRef");
+    localStorage.setItem("editAffaireRef", affaire.reference);
+    this.router.navigate(['/editAffaire', affaire.reference]);
+    console.log(affaire.reference)
+  }
 
   // Authentification
   authenticated() {
@@ -79,6 +85,5 @@ export class AffaireComponent implements OnInit {
       default:
         return 'Inconnu';
     }
-
   }
 }
