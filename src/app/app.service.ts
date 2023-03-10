@@ -46,11 +46,9 @@ export class AppService {
     );
     this.httpClient.get('http://localhost:9090/login/utilisateur', { headers: headersGerard }).subscribe(response => {
       this.responseAll = response; // objet = utilisateur
-      console.log("responseAll=" + this.responseAll);
 
       // Récupération des données de l'utilisateur connecté step 2
       this.idUser = this.responseAll['idUtilisateur'];
-
       if (this.responseAll['username']) {
         this.authenticated = true;
         // vérification des profils :
@@ -89,6 +87,7 @@ export class AppService {
     this.isAdmin = false;
     this.isAvocat = false;
     this.isNothing = false;
+    this.idUser = 0;
     this.responseAll = {};
     window.location.href = "/login";
   }
