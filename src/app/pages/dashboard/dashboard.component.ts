@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppService } from 'app/app.service';
 import { Affaire } from 'app/models/affaire';
 import { AffaireService } from 'app/services/affaire.service';
 import Chart from 'chart.js';
@@ -30,13 +32,23 @@ export class DashboardComponent implements OnInit {
   affairesFinish!: any[];
   affairesFinishCount!: any;
 
-  constructor(private affaireService: AffaireService) { }
+  constructor(private affaireService: AffaireService, private appService: AppService, private router: Router) { }
 
   ngOnInit() {
     this.findAllAffaires();
     this.findAllAffairesFuture();
     this.findAllAffairesCurrent();
     this.findAllAffairesFinish();
+
+    // non connecté
+    if (this.authenticated() === false) {
+      this.router.navigateByUrl("/login")
+    } else {
+      this.findAllAffaires();
+      this.findAllAffairesFuture();
+      this.findAllAffairesCurrent();
+      this.findAllAffairesFinish();
+    }
   }
 
   //Total affaires
@@ -73,5 +85,10 @@ export class DashboardComponent implements OnInit {
         this.affairesFinish = data.filter(affaire => affaire.statut === 2);
         this.affairesFinishCount = this.affairesFinish.length;
       });
+  }
+
+  // Authentification
+  authenticated() {
+    return this.appService.authenticated; // authenticated = false par défaut
   }
 }
