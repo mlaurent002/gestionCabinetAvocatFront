@@ -24,13 +24,18 @@ export class UtilisateurComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.nomUtilisateur = '';
-    this.findByNomUtilisateur();
-    this.findAllRole();
-    this.roleService.getRoles().subscribe(
-      (data: Role[]) => this.roles = data
-    );
-    this.saveUtilisateur();
+    // non connecté
+    if (this.authenticated() === false) {
+      this.router.navigateByUrl("/login")
+    } else {
+      this.nomUtilisateur = '';
+      this.findByNomUtilisateur();
+      this.findAllRole();
+      this.roleService.getRoles().subscribe(
+        (data: Role[]) => this.roles = data
+      );
+      this.saveUtilisateur();
+    }
   }
 
   onSubmit() {
@@ -83,5 +88,10 @@ export class UtilisateurComponent implements OnInit {
   //Recherche ?
   findByNomUtilisateur() {
     this.utilisateurService.findByNomUtilisateur(this.nomUtilisateur).subscribe(data => { this.nomUtilisateurRecherche = data; });
+  }
+
+  // Authentification
+  authenticated() {
+    return this.appService.authenticated; // authenticated = false par défaut
   }
 }

@@ -27,7 +27,8 @@ export class UtilisateurService {
   }
 
   public update(utilisateur: any): Observable<any> {
-    return this.httpClient.put(this.BASE_URL + "/" + utilisateur.idUtilisateur, utilisateur);
+    var utilisateurJSON = JSON.parse(utilisateur);
+    return this.httpClient.put(this.BASE_URL + '/' + utilisateurJSON.reference, utilisateurJSON);
   }
 
   //Tentative pour la recherche spécifique :
