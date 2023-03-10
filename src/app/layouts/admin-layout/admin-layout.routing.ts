@@ -15,6 +15,7 @@ import { LogoutComponent } from 'app/pages/logout/logout.component';
 import { TachesComponent } from 'app/pages/taches/taches.component';
 import { TribunauxComponent } from 'app/pages/tribunaux/tribunaux.component';
 import { EditAffaireComponent } from 'app/pages/edit/edit-affaire/edit-affaire.component';
+import { DocumentComponent } from 'app/pages/document/document.component';
 
 
 
@@ -33,6 +34,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'logout', component: LogoutComponent },
     { path: 'tache', component: TachesComponent },
     { path: 'tribunaux', component: TribunauxComponent },
+    { path: 'affaires/document', component: DocumentComponent },
     { path: 'affaires/editAffaire/:id', component: EditAffaireComponent },
 
 ];
