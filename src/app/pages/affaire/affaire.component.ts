@@ -61,8 +61,23 @@ export class AffaireComponent implements OnInit {
     this.affaireService.delete(id).subscribe(() => { /*this.findAllAffaires()*/ this.findByReference(); });
   }
 
+
   // Authentification
   authenticated() {
     return this.appService.authenticated; // authenticated = false par défaut
+
+  //Affichage du statut en string
+  convertStatusToString(status: number): string {
+    switch (status) {
+      case 0:
+        return 'A venir';
+      case 1:
+        return 'En cours';
+      case 2:
+        return 'Archivé';
+      default:
+        return 'Inconnu';
+    }
+
   }
 }

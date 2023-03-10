@@ -1,1 +1,98 @@
-<p>taches works!</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-user">
+            <div class="card-header">
+                <h5 class="card-title">Ajouter une Tache</h5>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="saveTache()">
+                    <div class="row">
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>date</label>
+                                <input type="text" class="form-control" [(ngModel)]="tache.dateCreation" name="date"
+                                    placeholder="date">
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-1">
+                            <div class="form-group">
+                                <label>Titre</label>
+                                <input type="text" class="form-control" [(ngModel)]="tache.titreTache" name="titre"
+                                    placeholder="Titre">
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" [(ngModel)]="tache.descriptionTache" name="description"
+                                    placeholder="Description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                            <button type="submit" class="btn btn-primary btn-round">Ajouter</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Affichage liste-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Liste des affaires</h4>
+            </div>
+            <div class="card-body">
+                <!--Recherche-->
+                <form (ngSubmit)="onSubmit()">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="form-group">
+                                <label>TitreTache</label>
+                                <input type="text" class="form-control" [(ngModel)]="titretache" name="reference"
+                                    placeholder="Référence">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-round">Recherche</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--Fin Recherche-->
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>Référence</th>
+                            <th>Titre</th>
+                            <th>Description</th>
+                            <th>Statut</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let a of tachesRecherche">
+                                <td>{{a.dateCreation}}</td>
+                                <td>{{a.titreTache}}</td>
+                                <td>{{a.descriptionTache}}</td>
+                                <td>{{a.statutAudience}}</td>
+                                <td>
+                                    <button class="btn btn-primary btn-round"
+                                        (click)="deleteTache(a.idTache)">Delete</button>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

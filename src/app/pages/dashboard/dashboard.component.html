@@ -1,169 +1,183 @@
+<!--Carte-->
 <div class="row">
   <div class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-globe text-warning"></i>
+      <a href="#Future"> <!--Lien vers la section liste affaires à venir-->
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-send text-primary"></i>
+              </div>
             </div>
-          </div>
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">Capacity</p>
-              <p class="card-title">150GB
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Affaires à venir</p>
+                <p class="card-title">{{affairesFutureCount}}
                 <p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-refresh"></i> Update Now
-        </div>
-      </div>
+      </a>
     </div>
   </div>
+
   <div class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-money-coins text-success"></i>
+      <a href="#Current"> <!--Lien vers la section liste affaires en cours-->
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-refresh-69 text-warning"></i>
+              </div>
             </div>
-          </div>
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">Revenue</p>
-              <p class="card-title">$ 1,345
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Affaires en cours</p>
+                <p class="card-title">{{affairesCurrentCount}}
                 <p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-calendar-o"></i> Last day
-        </div>
-      </div>
+      </a>
     </div>
   </div>
+
   <div class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-vector text-danger"></i>
+      <a href="#Archive" id="lienArchive"> <!--Lien vers la section liste affaires archivée-->
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-box text-success"></i>
+              </div>
             </div>
-          </div>
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">Errors</p>
-              <p class="card-title">23
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Affaires archivée</p>
+                <p class="card-title">{{affairesFinishCount}}
                 <p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-clock-o"></i> In the last hour
-        </div>
-      </div>
+      </a>
     </div>
   </div>
+
   <div class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-favourite-28 text-primary"></i>
+      <a href="#affaire"> <!--Lien vers la page affaire-->
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-single-copy-04 text-danger"></i>
+              </div>
             </div>
-          </div>
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">Followers</p>
-              <p class="card-title">+45K
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Total affaires</p>
+                <p class="card-title">{{affairesAllCount}}
                 <p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-refresh"></i> Update now
-        </div>
-      </div>
+      </a>
     </div>
   </div>
+
+
 </div>
-<div class="row">
+<!--Affichage tableau A VENIR-->
+<div class="row" id="Future">
   <div class="col-md-12">
-    <div class="card ">
-      <div class="card-header ">
-        <h5 class="card-title">Users Behavior</h5>
-        <p class="card-category">24 Hours performance</p>
-      </div>
-      <div class="card-body ">
-        <canvas id=chartHours width="400" height="100"></canvas>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-history"></i> Updated 3 minutes ago
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-4">
-    <div class="card ">
-      <div class="card-header ">
-        <h5 class="card-title">Email Statistics</h5>
-        <p class="card-category">Last Campaign Performance</p>
-      </div>
-      <div class="card-body ">
-        <canvas id="chartEmail"></canvas>
-      </div>
-      <div class="card-footer ">
-        <div class="legend">
-          <i class="fa fa-circle text-primary"></i> Opened
-          <i class="fa fa-circle text-warning"></i> Read
-          <i class="fa fa-circle text-danger"></i> Deleted
-          <i class="fa fa-circle text-gray"></i> Unopened
-        </div>
-        <hr>
-        <div class="stats">
-          <i class="fa fa-calendar"></i> Number of emails sent
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-8">
-    <div class="card card-chart">
+    <div class="card">
       <div class="card-header">
-        <h5 class="card-title">NASDAQ: AAPL</h5>
-        <p class="card-category">Line Chart with Points</p>
+        <h4 class="card-title"><i class="nc-icon nc-send text-primary"></i> Liste des affaires à venir</h4>
       </div>
       <div class="card-body">
-        <canvas id="speedChart" width="400" height="100"></canvas>
-      </div>
-      <div class="card-footer">
-        <div class="chart-legend">
-          <i class="fa fa-circle text-info"></i> Tesla Model S
-          <i class="fa fa-circle text-warning"></i> BMW 5 Series
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>Référence</th>
+              <th>Titre</th>
+              <th>Description</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let a of affairesFuture">
+                <td>{{a.reference}}</td>
+                <td>{{a.titre}}</td>
+                <td>{{a.description}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <hr/>
-        <div class="card-stats">
-          <i class="fa fa-check"></i> Data information certified
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Affichage tableau EN COURS-->
+<div class="row" id="Current">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title"><i class="nc-icon nc-refresh-69 text-warning"></i> Liste des affaires en cours</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-warning">
+              <th>Référence</th>
+              <th>Titre</th>
+              <th>Description</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let a of affairesCurrent">
+                <td>{{a.reference}}</td>
+                <td>{{a.titre}}</td>
+                <td>{{a.description}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Affichage tableau ARCHIVE-->
+<div>
+  <div class="row" id="Archive">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"><i class="nc-icon nc-box text-success"></i> Liste des affaires archivées</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-success">
+                <th>Référence</th>
+                <th>Titre</th>
+                <th>Description</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let a of affairesFinish">
+                  <td>{{a.reference}}</td>
+                  <td>{{a.titre}}</td>
+                  <td>{{a.description}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

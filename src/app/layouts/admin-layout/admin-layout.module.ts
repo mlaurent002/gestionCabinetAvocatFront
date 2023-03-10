@@ -26,6 +26,8 @@ import { Observable } from 'rxjs';
 import { LoginComponent } from 'app/pages/login/login.component';
 import { TachesComponent } from 'app/pages/taches/taches.component';
 import { LogoutComponent } from 'app/pages/logout/logout.component';
+import { TacheService } from 'app/services/tache.service';
+
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -63,6 +65,7 @@ export class XhrInterceptor implements HttpInterceptor {
 
   providers: [
     AffaireService,
+    TacheService,
     AppService,
     { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }
   ],
