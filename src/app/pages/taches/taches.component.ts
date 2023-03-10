@@ -1,8 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Affaire } from 'app/models/affaire';
 import { Tache } from 'app/models/tache';
+import { Utilisateur } from 'app/models/utilisateur';
+import { AffaireService } from 'app/services/affaire.service';
 import { TacheService } from 'app/services/tache.service';
+import { UtilisateurService } from 'app/services/utilisateur.service';
 
 @Component({
   selector: 'app-taches',
@@ -11,14 +15,21 @@ import { TacheService } from 'app/services/tache.service';
 })
 export class TachesComponent implements OnInit {
   taches!: Tache[];
-  tachesRecherche: Tache[]
+  tachesRecherche!: Tache[]
   tache: Tache = new Tache();
   titretache!: String;
+  affaireFK2: Affaire = new Affaire();
+  affaires!: Affaire[];
+  utilisateur: Utilisateur = new Utilisateur();
+  utilisateurs!: Utilisateur[];
 
-  constructor(private tacheService: TacheService, private httpClient: HttpClient, private router: Router) { }
+
+  constructor(private tacheService: TacheService, private utilisateurService: UtilisateurService, private affaireService: AffaireService, private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.findAllTaches();
+    this.findAllAffaire();
+    this.findAllUtilisateur();
     this.tachesRecherche = [];
   }
 
@@ -35,12 +46,36 @@ export class TachesComponent implements OnInit {
       }
     );
   }
+  submitTache() {
+    this.tache.utilisateurFK = this.utilisateur;
+    this.tache.affaireFK2 = this.affaireFK2;
+    console.log(this.affaireFK2.idAffaire)
+    this.saveTache();
+  }
+
   findAllTaches() {
     //subsribe : utilisation de l'expression lambda
     //data -> {this.users = data}
     this.tacheService.findAll().subscribe(data => {
       this.taches = data
     })
+
+  }
+  findAllAffaire() {
+    //subsribe : utilisation de l'expression lambda
+    //data -> {this.users = data}
+    this.affaireService.findAll().subscribe(data => {
+      this.affaires = data
+    })
+
+  }
+  findAllUtilisateur() {
+    //subsribe : utilisation de l'expression lambda
+    //data -> {this.users = data}
+    this.utilisateurService.findAll().subscribe(data => {
+      this.utilisateurs = data
+    })
+
   }
   deleteTache(idTache: number) {
     this.tacheService.delete(idTache).subscribe(() => {
