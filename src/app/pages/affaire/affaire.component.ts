@@ -48,7 +48,7 @@ export class AffaireComponent implements OnInit {
     } else {
       this.affaireService.findAll().subscribe(
         data => {
-          this.affairesRecherche = data.filter(affaire => affaire.reference === this.reference);
+          this.affairesRecherche = data.filter(affaire => affaire.reference == this.reference);
         });
     }
   }
