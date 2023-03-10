@@ -35,11 +35,6 @@ export class DashboardComponent implements OnInit {
   constructor(private affaireService: AffaireService, private appService: AppService, private router: Router) { }
 
   ngOnInit() {
-    this.findAllAffaires();
-    this.findAllAffairesFuture();
-    this.findAllAffairesCurrent();
-    this.findAllAffairesFinish();
-
     // non connecté
     if (this.authenticated() === false) {
       this.router.navigateByUrl("/login")
