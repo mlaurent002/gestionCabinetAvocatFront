@@ -30,4 +30,8 @@ export class UtilisateurService {
     return this.httpClient.put(this.BASE_URL + "/" + utilisateur.idUtilisateur, utilisateur);
   }
 
+  //Tentative pour la recherche spécifique :
+  public rechercher(nom: string): Observable<any> {
+    return this.httpClient.get(this.BASE_URL + "/" + nom);
+  }
 }

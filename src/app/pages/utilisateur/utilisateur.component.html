@@ -1,5 +1,5 @@
 <!-- Formulaire d'ajout début-->
-<!--<div class="container-fluid mt--7" style="background-color: white;">
+<div class="container-fluid mt--7" style="background-color: white;">
     <div>
         <div>
             <div>
@@ -74,4 +74,46 @@
             </div>
         </div>
     </div>
-</div>-->
+</div>
+<!-- Formulaire d'ajout fin-->
+<!-- Afficher les données début-->
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 style="color: chocolate;"><b>Liste des utilisateurs</b></h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Nom d'utilisateur</th>
+                                <th>Mot de passe (crypté)</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let u of users">
+                                <td>{{u.nomUtilisateur}}</td>
+                                <td>{{u.prenomUtilisateur}}</td>
+                                <td>{{u.username}}</td>
+                                <td>{{u.password}}</td>
+                                <td>
+                                    <p style="margin: 0px;" *ngFor="let r of u.roles">{{r.libelle}}</p>
+                                </td>
+                                <td> <button (click)="deleteUtilisateur(u.idUtilisateur)"
+                                        style="background-color: chocolate; color: white;">Supprimer</button>
+                                    <button (click)="editUtilisateur(u)">Editer</button>
+                                </td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Afficher les données fin-->
