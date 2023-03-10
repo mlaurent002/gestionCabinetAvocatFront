@@ -5,12 +5,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AffaireService {
-
-  private BASE_URL = "http://localhost:9090/affaires";
+export class TribunalService {
+  private BASE_URL = "http://localhost:9090/tribunaux";
 
   constructor(private httpClient: HttpClient) { }
-
   //findAll -> verbe http : GET --> url : BASE_URL
   public findAll(): Observable<any> {
     return this.httpClient.get(this.BASE_URL);
@@ -34,7 +32,7 @@ export class AffaireService {
   //update --> verbe http : PUT --> url : BASE_URL/id et dans le body l'objet affaire
   public update(affaire: any): Observable<any> {
     var affaireJSON = JSON.parse(affaire);
-    return this.httpClient.put(this.BASE_URL + '/' + affaireJSON.reference, affaireJSON);
+    return this.httpClient.put(this.BASE_URL + '/' + affaireJSON.idAffaire, affaireJSON);
   }
 
   //findByReference with reference --> verbe http : GET --> ulr : BASE_URL/reference
