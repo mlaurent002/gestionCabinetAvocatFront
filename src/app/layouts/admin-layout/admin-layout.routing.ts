@@ -16,6 +16,8 @@ import { TachesComponent } from 'app/pages/taches/taches.component';
 import { TribunauxComponent } from 'app/pages/tribunaux/tribunaux.component';
 import { EditAffaireComponent } from 'app/pages/edit/edit-affaire/edit-affaire.component';
 import { EditUtilisateurComponent } from 'app/pages/edit/edit-utilisateur/edit-utilisateur.component';
+import { DocumentComponent } from 'app/pages/document/document.component';
+
 
 
 
@@ -29,11 +31,14 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications', component: NotificationsComponent },
     { path: 'upgrade', component: UpgradeComponent },
     { path: 'utilisateur', component: UtilisateurComponent },
-    { path: 'affaire', component: AffaireComponent },
+    { path: 'affaires', component: AffaireComponent },
     { path: 'login', component: LoginComponent },
     { path: 'logout', component: LogoutComponent },
     { path: 'tache', component: TachesComponent },
     { path: 'tribunaux', component: TribunauxComponent },
     { path: 'editAffaire/:ref', component: EditAffaireComponent },
     { path: 'editUtilisateur/:id', component: EditUtilisateurComponent },
+    { path: 'affaires/document', component: DocumentComponent },
+    { path: 'affaires/editAffaire/:id', component: EditAffaireComponent },
+
 ];
