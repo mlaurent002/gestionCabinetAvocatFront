@@ -1,18 +1,17 @@
 <!-- Formulaire d'ajout début-->
-<!--<div class="container-fluid mt--7" style="background-color: white;">
+<div class="container-fluid mt--7" style="background-color: white;">
     <div>
         <div>
             <div>
                 <div>
                     <div>
-                        <h3 style="color: chocolate;"><b>Ajout d'un utilisateur</b></h3>
+                        <h4 style="color: chocolate;">Ajout d'un utilisateur</h4>
                     </div>
                 </div>
             </div>
             <div class="card-body">
                 <form (ngSubmit)="saveUtilisateur()">
-                    <h4 class="heading-small text-muted mb-4"><b>Informations des utilisateurs</b>
-                    </h4>
+                    <h5 class="heading-small text-muted mb-4">Informations des utilisateurs</h5>
                     <div class="pl-lg-4">
                         <div class="row">
                             <div class="col-lg-6">
@@ -74,4 +73,62 @@
             </div>
         </div>
     </div>
-</div>-->
+</div>
+<!-- Formulaire d'ajout fin-->
+<!-- Afficher les données début-->
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h4 style="color: chocolate;">Liste des utilisateurs</h4>
+                </div>
+                <!--Recherche-->
+                <form (ngSubmit)="onSubmit()">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="form-group">
+                                <input type="text" class="form-control" [(ngModel)]="nomUtilisateur"
+                                    name="nomUtilisateur" placeholder="Nom de la personne">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-round"
+                                    style="background-color: chocolate">Recherche</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--Fin Recherche-->
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Nom d'utilisateur</th>
+                                <th>Mot de passe (crypté)</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let u of nomUtilisateurRecherche">
+                                <td>{{u.nomUtilisateur}}</td>
+                                <td>{{u.prenomUtilisateur}}</td>
+                                <td>{{u.username}}</td>
+                                <td>{{u.password}}</td>
+                                <td>
+                                    <p style="margin: 0px;" *ngFor="let r of u.roles">{{r.libelle}}</p>
+                                </td>
+                                <td> <button (click)="deleteUtilisateur(u.idUtilisateur)"
+                                        style="background-color: chocolate; color: white;">Supprimer</button>
+                                    <button (click)="editUtilisateur(u)">Editer</button>
+                                </td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Afficher les données fin-->

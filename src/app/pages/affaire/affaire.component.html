@@ -33,8 +33,11 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Statut</label>
-                                <input type="number" class="form-control" [(ngModel)]="affaire.statut" name="statut"
-                                    placeholder="Statut">
+                                <select [(ngModel)]="affaire.statut" name="statut" class="form-control">
+                                    <option value="0">A venir</option>
+                                    <option value="1">En cours</option>
+                                    <option value="2">Archivé</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -68,8 +71,8 @@
                                 <input type="text" class="form-control" [(ngModel)]="reference" name="reference"
                                     placeholder="Référence">
                             </div>
-                            <div>
-                                <button type="submit" class="btn btn-primary btn-round">Recherche</button>
+                            <div style="margin-top: 15px; margin-left: 10px;">
+                                <button type="submit" class="btn btn-outline-primary btn-round">Recherche</button>
                             </div>
                         </div>
                     </div>
@@ -90,10 +93,11 @@
                                 <td>{{a.reference}}</td>
                                 <td>{{a.titre}}</td>
                                 <td>{{a.description}}</td>
-                                <td>{{a.statut}}</td>
+                                <td>{{convertStatusToString(a.statut)}}</td>
                                 <td>
                                     <button class="btn btn-primary btn-round"
                                         (click)="deleteAffaire(a.idAffaire)">Delete</button>
+                                    <button class="btn btn-primary btn-round" (click)="editAffaire(a)">Edit</button>
                                 </td>
 
                             </tr>
