@@ -15,14 +15,13 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { FormsModule } from "@angular/forms";
 import { TachesComponent } from './pages/taches/taches.component';
 import { HttpClientModule } from "@angular/common/http";
+import { TribunauxComponent } from './pages/tribunaux/tribunaux.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
-
   ],
   imports: [
     BrowserAnimationsModule,

@@ -13,6 +13,7 @@ import { AffaireComponent } from 'app/pages/affaire/affaire.component';
 import { LoginComponent } from 'app/pages/login/login.component';
 import { LogoutComponent } from 'app/pages/logout/logout.component';
 import { TachesComponent } from 'app/pages/taches/taches.component';
+import { TribunauxComponent } from 'app/pages/tribunaux/tribunaux.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -29,5 +30,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'logout', component: LogoutComponent },
     { path: 'tache', component: TachesComponent },
+    { path: 'tribunaux', component: TribunauxComponent },
 
 ];
