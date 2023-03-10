@@ -31,7 +31,7 @@ export class UtilisateurService {
   }
 
   //Tentative pour la recherche spécifique :
-  public rechercher(nom: string): Observable<any> {
-    return this.httpClient.get(this.BASE_URL + "/" + nom);
+  public findByNomUtilisateur(nomUtilisateur: string): Observable<any> {
+    return this.httpClient.get(this.BASE_URL + "/" + nomUtilisateur);
   }
 }
