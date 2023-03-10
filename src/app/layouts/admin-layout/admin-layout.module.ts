@@ -34,6 +34,7 @@ import { DocumentComponent } from 'app/pages/document/document.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -70,6 +71,7 @@ export class XhrInterceptor implements HttpInterceptor {
     TribunauxComponent,
     DocumentComponent,
     EditAffaireComponent
+
   ],
 
   providers: [

@@ -29,12 +29,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications', component: NotificationsComponent },
     { path: 'upgrade', component: UpgradeComponent },
     { path: 'utilisateur', component: UtilisateurComponent },
-    { path: 'affaire', component: AffaireComponent },
+    { path: 'affaires', component: AffaireComponent },
     { path: 'login', component: LoginComponent },
     { path: 'logout', component: LogoutComponent },
     { path: 'tache', component: TachesComponent },
     { path: 'tribunaux', component: TribunauxComponent },
-    { path: 'editAffaire/:ref', component: EditAffaireComponent },
     { path: 'affaires/document', component: DocumentComponent },
+    { path: 'affaires/editAffaire/:id', component: EditAffaireComponent },
 
 ];
