@@ -5,7 +5,7 @@
                 <h5 class="card-title">Ajouter une Tache</h5>
             </div>
             <div class="card-body">
-                <form (ngSubmit)="saveTache()">
+                <form (ngSubmit)="submitTache()">
                     <div class="row">
                         <div class="col-md-6 pr-1">
                             <div class="form-group">
@@ -26,6 +26,28 @@
                                 <label>Description</label>
                                 <textarea class="form-control" [(ngModel)]="tache.descriptionTache" name="description"
                                     placeholder="Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-1">
+                            <div class="form-group">
+                                <label>Affaire</label>
+                                <select class="form-control form-control-alternative" name="Doctor"
+                                    [(ngModel)]="affaireFK2" value="">
+                                    <option *ngFor="let u of affaires" [ngValue]="u">
+                                        {{u.reference}} {{u.titre}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-1">
+                            <div class="form-group">
+                                <label>utilisateur</label>
+                                <select class="form-control form-control-alternative" name="Doctor"
+                                    [(ngModel)]="utilisateur" value="">
+                                    <option *ngFor="let i of utilisateurs" [ngValue]="u">
+                                        {{i.nomUtilisateur}} {{u.prenomUtilisateur}}
+                                    </option>
+                                </select>
                             </div>
                         </div>
                     </div>
