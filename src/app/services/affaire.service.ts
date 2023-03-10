@@ -34,7 +34,7 @@ export class AffaireService {
   //update --> verbe http : PUT --> url : BASE_URL/id et dans le body l'objet affaire
   public update(affaire: any): Observable<any> {
     var affaireJSON = JSON.parse(affaire);
-    return this.httpClient.put(this.BASE_URL + '/' + affaireJSON.idAffaire, affaireJSON);
+    return this.httpClient.put(this.BASE_URL + '/' + affaireJSON.reference, affaireJSON);
   }
 
   //findByReference with reference --> verbe http : GET --> ulr : BASE_URL/reference

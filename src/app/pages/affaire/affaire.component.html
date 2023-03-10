@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <label>Statut</label>
                                 <select [(ngModel)]="affaire.statut" name="statut" class="form-control">
-                                    <option value="0">A venier</option>
+                                    <option value="0">A venir</option>
                                     <option value="1">En cours</option>
                                     <option value="2">Archivé</option>
                                 </select>
@@ -97,6 +97,7 @@
                                 <td>
                                     <button class="btn btn-primary btn-round"
                                         (click)="deleteAffaire(a.idAffaire)">Delete</button>
+                                    <button class="btn btn-primary btn-round" (click)="editAffaire(a)">Edit</button>
                                 </td>
 
                             </tr>
