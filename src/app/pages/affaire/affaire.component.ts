@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppService } from 'app/app.service';
 import { Affaire } from 'app/models/affaire';
 import { AffaireService } from 'app/services/affaire.service';
 
@@ -16,13 +19,18 @@ export class AffaireComponent implements OnInit {
   affairesRecherche: any;
   reference: string;
 
-  constructor(private affaireService: AffaireService) { }
+  constructor(private affaireService: AffaireService, private appService: AppService, private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
-    //this.findAllAffaires();
-    //Recherche 3
-    this.reference = '';
-    this.findByReference();
+    // non connecté
+    if (this.authenticated() === false) {
+      this.router.navigateByUrl("/login")
+    } else {
+      //this.findAllAffaires();
+      //Recherche 3
+      this.reference = '';
+      this.findByReference();
+    }
   }
   //Recherche 6
   onSubmit() {
@@ -51,5 +59,10 @@ export class AffaireComponent implements OnInit {
 
   deleteAffaire(id: number) {
     this.affaireService.delete(id).subscribe(() => { /*this.findAllAffaires()*/ this.findByReference(); });
+  }
+
+  // Authentification
+  authenticated() {
+    return this.appService.authenticated; // authenticated = false par défaut
   }
 }
