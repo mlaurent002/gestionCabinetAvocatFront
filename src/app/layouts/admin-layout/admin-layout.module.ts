@@ -32,6 +32,7 @@ import { TribunalService } from 'app/services/tribunal.service';
 import { EditAffaireComponent } from 'app/pages/edit/edit-affaire/edit-affaire.component';
 import { DocumentComponent } from 'app/pages/document/document.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditUtilisateurComponent } from 'app/pages/edit/edit-utilisateur/edit-utilisateur.component';
 
 
 
@@ -70,7 +71,8 @@ export class XhrInterceptor implements HttpInterceptor {
     AffaireComponent,
     TribunauxComponent,
     DocumentComponent,
-    EditAffaireComponent
+    EditAffaireComponent,
+    EditUtilisateurComponent,
 
   ],
 
