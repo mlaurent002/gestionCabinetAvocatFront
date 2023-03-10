@@ -24,6 +24,7 @@ export class UtilisateurComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     // non connecté
     if (this.authenticated() === false) {
       this.router.navigateByUrl("/login")
@@ -36,6 +37,13 @@ export class UtilisateurComponent implements OnInit {
       );
       this.saveUtilisateur();
     }
+    this.nomUtilisateur = '';
+    this.findByNomUtilisateur();
+    this.findAllRole();
+    this.roleService.getRoles().subscribe(
+      (data: Role[]) => this.roles = data
+    );
+    this.saveUtilisateur();
   }
 
   onSubmit() {
