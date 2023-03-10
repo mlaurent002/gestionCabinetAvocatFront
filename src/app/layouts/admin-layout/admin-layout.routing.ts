@@ -11,6 +11,7 @@ import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { UtilisateurComponent } from 'app/pages/utilisateur/utilisateur.component';
 import { AffaireComponent } from 'app/pages/affaire/affaire.component';
 import { LoginComponent } from 'app/pages/login/login.component';
+import { TachesComponent } from 'app/pages/taches/taches.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -23,5 +24,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade', component: UpgradeComponent },
     { path: 'utilisateur', component: UtilisateurComponent },
     { path: 'affaire', component: AffaireComponent },
+    { path: 'tache', component: TachesComponent },
     { path: 'login', component: LoginComponent }
 ];
