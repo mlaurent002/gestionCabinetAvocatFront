@@ -5,6 +5,7 @@ import { RoleService } from 'app/services/role.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
 import { AppService } from 'app/app.service';
 import { HttpClient } from '@angular/common/http';
+import { Role } from 'app/models/role';
 
 
 @Component({
@@ -12,9 +13,9 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './utilisateur.component.html'
 })
 export class UtilisateurComponent implements OnInit {
-
+  //role: Role = new Role();
   users!: any[];
-  roles!: any[];
+  roles: Role[] = [];
   nomUtilisateurRecherche: any;
   nomUtilisateur: string;
   utilisateur: Utilisateur = new Utilisateur();
@@ -25,6 +26,11 @@ export class UtilisateurComponent implements OnInit {
   ngOnInit(): void {
     this.nomUtilisateur = '';
     this.findByNomUtilisateur();
+    this.findAllRole();
+    this.roleService.getRoles().subscribe(
+      (data: Role[]) => this.roles = data
+    );
+    this.saveUtilisateur();
   }
 
   onSubmit() {
@@ -50,6 +56,16 @@ export class UtilisateurComponent implements OnInit {
       }
     )
   }
+  /*saveUtilisateur() {
+    console.log(this.utilisateur);
+    this.utilisateurService.save(this.utilisateur).subscribe(
+      (data: Utilisateur) => {
+        this.utilisateur = new Utilisateur(); // réinitialiser l'utilisateur pour un nouvel ajout
+        console.log(data); // afficher l'utilisateur nouvellement ajouté dans la console
+      },
+      error => console.log(error)
+    );
+  }*/
   deleteUtilisateur(id: number) {
     this.utilisateurService.delete(id).subscribe(
       () => {
