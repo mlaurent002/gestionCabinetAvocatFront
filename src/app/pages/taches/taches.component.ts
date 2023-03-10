@@ -10,13 +10,16 @@ import { TacheService } from 'app/services/tache.service';
   styleUrls: ['./taches.component.scss']
 })
 export class TachesComponent implements OnInit {
-  taches: Tache[];
+  taches!: Tache[];
+  tachesRecherche: Tache[]
   tache: Tache = new Tache();
+  titretache!: String;
 
   constructor(private tacheService: TacheService, private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
-    this.findAllTaches
+    this.findAllTaches();
+    this.tachesRecherche = [];
   }
 
 
@@ -25,8 +28,9 @@ export class TachesComponent implements OnInit {
     this.tacheService.save(this.tache).subscribe(
       () => {
         console.log("je suis save du composant")
-        this.tache = new Tache(); // Vider le formulaire
+
         this.findAllTaches(); // Mettre à jour la liste des médicaments après l'ajout
+        this.tache = new Tache(); // Vider le formulaire
         //this.notifications.showSuccess('Consultation saved successfully!');
       }
     );
@@ -38,9 +42,15 @@ export class TachesComponent implements OnInit {
       this.taches = data
     })
   }
-  deleteConsultation(idTache: number) {
+  deleteTache(idTache: number) {
     this.tacheService.delete(idTache).subscribe(() => {
-      this.findAllTaches(); // Mettre à jour la liste des médicaments
+      this.findAllTaches(); // Mettre à jour la liste
     });
   }
+  onSubmit() {
+    this.tachesRecherche = []
+    this.taches.forEach(e => { if (e.titreTache == this.titretache) { console.log(this.taches); this.tachesRecherche.push(e) } })
+
+  }
+
 }

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TacheService {
 
-  private BASE_URL = "http://localhost:9090/TACHES";
+  private BASE_URL = "http://localhost:9090/taches";
   // HttpClient : un module qui nous permet d'utiliser les verbes http : GET, POST, PUT et DELETE
   constructor(private httpClient: HttpClient) { }
   // findAll --> verbe http : GET --> url : BASE_URL

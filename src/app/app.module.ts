@@ -13,6 +13,7 @@ import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { FormsModule } from "@angular/forms";
+import { TachesComponent } from './pages/taches/taches.component';
 import { HttpClientModule } from "@angular/common/http";
 
 
