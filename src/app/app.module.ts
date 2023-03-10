@@ -13,17 +13,13 @@ import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { TachesComponent } from './pages/taches/taches.component';
 import { HttpClientModule } from "@angular/common/http";
-import { TribunauxComponent } from './pages/tribunaux/tribunaux.component';
-import { EditAffaireComponent } from './pages/edit/edit-affaire/edit-affaire.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    EditAffaireComponent,
 
   ],
   imports: [
