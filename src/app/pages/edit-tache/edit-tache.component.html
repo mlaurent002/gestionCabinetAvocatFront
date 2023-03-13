@@ -11,28 +11,31 @@
                             <div class="form-group">
                                 <label>date</label>
                                 <input type="date" class="form-control" [(ngModel)]="tache.dateCreation"
-                                    formControlName="dateCreation" placeholder="dateCreation">
+                                    formControlName="dateCreation" placeholder="date">
                             </div>
                         </div>
                         <div class="col-md-6 px-1">
                             <div class="form-group">
                                 <label>Titre</label>
                                 <input type="text" class="form-control" [(ngModel)]="tache.titreTache"
-                                    formControlName="titreTache" placeholder="titreTache">
+                                    formControlName="titreTache" placeholder="titre">
                             </div>
                         </div>
                         <div class="col-md-6 pr-1">
                             <div class="form-group">
                                 <label>Description</label>
                                 <textarea class="form-control" [(ngModel)]="tache.descriptionTache"
-                                    formControlName="descriptionTache" placeholder="descriptionTache"></textarea>
+                                    formControlName="descriptionTache" placeholder="description"></textarea>
                             </div>
                         </div>
                         <div class="col-md-6 pr-1">
                             <div class="form-group">
                                 <label>Statut</label>
-                                <textarea class="form-control" [(ngModel)]="tache.statutAudience"
-                                    formControlName="statutAudience" placeholder="statutAudience"></textarea>
+                                <select [(ngModel)]="tache.statutAudience" formControlName="statutAudience"
+                                    class="form-control">
+                                    <option value="true">fait</option>
+                                    <option value="false">En cours</option>
+                                </select>
                             </div>
                         </div>
                     </div>
