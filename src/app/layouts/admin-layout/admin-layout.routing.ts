@@ -36,6 +36,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'logout', component: LogoutComponent },
     { path: 'tache', component: TachesComponent },
     { path: 'tribunaux', component: TribunauxComponent },
+    { path: 'editAffaire/:ref', component: EditAffaireComponent },
     { path: 'editUtilisateur/:id', component: EditUtilisateurComponent },
     { path: 'affaires/document', component: DocumentComponent },
     { path: 'affaires/editAffaire/:id', component: EditAffaireComponent },
