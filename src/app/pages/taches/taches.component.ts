@@ -3,10 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Affaire } from 'app/models/affaire';
 import { Tache } from 'app/models/tache';
+import { Tribunal } from 'app/models/tribunal';
 import { Utilisateur } from 'app/models/utilisateur';
 import { AffaireService } from 'app/services/affaire.service';
 import { TacheService } from 'app/services/tache.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
+import { TribunalService } from 'app/services/tribunal.service';
+import { AppService } from 'app/app.service';
 
 @Component({
   selector: 'app-taches',
@@ -22,19 +25,28 @@ export class TachesComponent implements OnInit {
   affaires!: Affaire[];
   utilisateur: Utilisateur = new Utilisateur();
   utilisateurs!: Utilisateur[];
+  tribunalFK: Tribunal = new Tribunal();
+  tribunaux!: Tribunal[];
 
 
-  constructor(private tacheService: TacheService, private utilisateurService: UtilisateurService, private affaireService: AffaireService, private httpClient: HttpClient, private router: Router) { }
+  constructor(private tribunalService: TribunalService, private tacheService: TacheService, private utilisateurService: UtilisateurService, private affaireService: AffaireService, private httpClient: HttpClient, private router: Router, private appService: AppService) { }
 
   ngOnInit(): void {
-    this.findAllTaches();
-    this.findAllAffaire();
-    this.findAllUtilisateur();
-    this.tachesRecherche = [];
+    if (this.authenticated() === false) {
+      this.router.navigateByUrl("/login")
+    } else {
+      this.findAllTaches();
+      this.findAllAffaire();
+      this.findAllUtilisateur();
+      this.findAllTribunaux();
+      this.tachesRecherche = [];
+    }
   }
 
 
-
+  authenticated() {
+    return this.appService.authenticated; // authenticated = false par défaut
+  }
   saveTache() {
     this.tacheService.save(this.tache).subscribe(
       () => {
@@ -49,7 +61,7 @@ export class TachesComponent implements OnInit {
   submitTache() {
     this.tache.utilisateurFK = this.utilisateur;
     this.tache.affaireFK2 = this.affaireFK2;
-    console.log(this.affaireFK2.idAffaire)
+    this.tache.tribunalFK = this.tribunalFK;
     this.saveTache();
   }
 
@@ -69,6 +81,16 @@ export class TachesComponent implements OnInit {
     })
 
   }
+
+
+  findAllTribunaux() {
+    //subsribe : utilisation de l'expression lambda
+    //data -> {this.users = data}
+    this.tribunalService.findAll().subscribe(data => {
+      this.tribunaux = data
+    })
+
+  }
   findAllUtilisateur() {
     //subsribe : utilisation de l'expression lambda
     //data -> {this.users = data}
@@ -82,10 +104,29 @@ export class TachesComponent implements OnInit {
       this.findAllTaches(); // Mettre à jour la liste
     });
   }
-  onSubmit() {
-    this.tachesRecherche = []
-    this.taches.forEach(e => { if (e.titreTache == this.titretache) { console.log(this.taches); this.tachesRecherche.push(e) } })
-
+  editTache(idTache: number) {
+    localStorage.removeItem("editTacheRef");
+    localStorage.setItem("editTacheRef", idTache.toString());
+    this.router.navigate(['/editTache', idTache]);
   }
 
+  onSubmit() {
+    this.tachesRecherche = []
+    if (this.titretache == '') {
+      this.tacheService.findAll().subscribe(data => { this.tachesRecherche = data; });
+    } else {
+      this.affaireService.findAll().subscribe(
+        data => {
+          this.taches.forEach(e => { if (e.titreTache == this.titretache) { console.log(this.taches); this.tachesRecherche.push(e) } })
+        });
+    }
+  }
+
+  //Voir la liste des phases
+  listPhase(idTache: number) {
+    localStorage.removeItem("tacheId");
+    localStorage.setItem("tacheId", idTache.toString());
+    this.router.navigate(['/tache', idTache, 'phases']);
+
+  }
 }

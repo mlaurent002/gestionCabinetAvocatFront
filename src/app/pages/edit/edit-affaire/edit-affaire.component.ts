@@ -19,7 +19,6 @@ export class EditAffaireComponent implements OnInit {
   constructor(private routeur: Router, private affaireService: AffaireService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-
     let currentAffaire = localStorage.getItem("editAffaireId");
     if (!currentAffaire) {
       alert("Invalid Action");
