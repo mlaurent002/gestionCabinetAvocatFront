@@ -119,8 +119,8 @@ export class TachesComponent implements OnInit {
         data => {
           this.taches.forEach(e => { if (e.titreTache == this.titretache) { console.log(this.taches); this.tachesRecherche.push(e) } })
         });
-
     }
+  }
 
   //Voir la liste des phases
   listPhase(idTache: number) {
