@@ -96,4 +96,11 @@ export class TachesComponent implements OnInit {
 
   }
 
+  //Voir la liste des phases
+  listPhase(idTache: number) {
+    localStorage.removeItem("tacheId");
+    localStorage.setItem("tacheId", idTache.toString());
+    this.router.navigate(['/tache', idTache, 'phases']);
+
+  }
 }
