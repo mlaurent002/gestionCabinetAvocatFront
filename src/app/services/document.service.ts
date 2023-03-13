@@ -5,9 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AffaireService {
-
-  private BASE_URL = "http://localhost:9090/affaires";
+export class DocumentService {
+  private BASE_URL = "http://localhost:9090/documents";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,8 +16,8 @@ export class AffaireService {
   }
 
   //save -> verbe http : POST --> url : BASE_URL + Body
-  public save(affaire: any): Observable<any> {
-    return this.httpClient.post(this.BASE_URL, affaire);
+  public save(document: any): Observable<any> {
+    return this.httpClient.post(this.BASE_URL, document);
   }
 
   //delete --> verbe http : DELETE --> url : BASE_URL/id
@@ -31,10 +30,10 @@ export class AffaireService {
     return this.httpClient.get(this.BASE_URL + "/" + id);
   }
 
-  //update --> verbe http : PUT --> url : BASE_URL/id et dans le body l'objet affaire
-  public update(affaire: any): Observable<any> {
-    var affaireJSON = JSON.parse(affaire);
-    return this.httpClient.put(this.BASE_URL + '/' + affaireJSON.idAffaire, affaireJSON);
+  //update --> verbe http : PUT --> url : BASE_URL/id et dans le body l'objet document
+  public update(document: any): Observable<any> {
+    var documentJSON = JSON.parse(document);
+    return this.httpClient.put(this.BASE_URL + '/' + documentJSON.reference, documentJSON);
   }
 
   //findByReference with reference --> verbe http : GET --> ulr : BASE_URL/reference

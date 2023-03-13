@@ -13,11 +13,11 @@ import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { TachesComponent } from './pages/taches/taches.component';
 import { HttpClientModule } from "@angular/common/http";
 import { TribunauxComponent } from './pages/tribunaux/tribunaux.component';
 import { EditAffaireComponent } from './pages/edit/edit-affaire/edit-affaire.component';
 import { EditTacheComponent } from './pages/edit-tache/edit-tache.component';
+import { EditUtilisateurComponent } from './pages/edit/edit-utilisateur/edit-utilisateur.component';
 
 
 @NgModule({
@@ -25,7 +25,9 @@ import { EditTacheComponent } from './pages/edit-tache/edit-tache.component';
     AppComponent,
     AdminLayoutComponent,
     EditAffaireComponent,
-    EditTacheComponent
+    EditTacheComponent,
+    EditUtilisateurComponent
+
 
   ],
   imports: [

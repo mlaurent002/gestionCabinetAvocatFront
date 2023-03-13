@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppService } from 'app/app.service';
 import { Affaire } from 'app/models/affaire';
 import { AffaireService } from 'app/services/affaire.service';
 
@@ -18,13 +19,13 @@ export class EditAffaireComponent implements OnInit {
   constructor(private routeur: Router, private affaireService: AffaireService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    let currentAffaire = localStorage.getItem("editAffaireRef");
-    console.log(currentAffaire);
+    let currentAffaire = localStorage.getItem("editAffaireId");
     if (!currentAffaire) {
       alert("Invalid Action");
-      this.routeur.navigate(["/affaire"])
+      this.routeur.navigate(["/affaires"])
       return;
     }
+
 
     //création de données vide
     this.editForm = this.formBuilder.group({
@@ -37,13 +38,13 @@ export class EditAffaireComponent implements OnInit {
     })
 
     //On remplit les champs vides
-    this.affaireService.findByReference(currentAffaire).subscribe(data => { this.editForm.setValue(data); });
+    this.affaireService.findOne(+currentAffaire).subscribe(data => { this.editForm.setValue(data); });
   }
 
   /*MAJ des données*/
   updateAffaire() {
     var affaireJson = JSON.stringify(this.editForm.value);
-    this.affaireService.update(affaireJson).subscribe(() => { this.routeur.navigate(['/affaire']) });
+    this.affaireService.update(affaireJson).subscribe(() => { this.routeur.navigate(['/affaires']) });
   }
 
 }

@@ -37,15 +37,20 @@ export class AffaireComponent implements OnInit {
     this.findByReference();
   }
 
-  //Recherche 5
-  /*
-  findAllAffaires() {
+  /*findAllAffaires() {
     this.affaireService.findAll().subscribe(data => { this.affaires = data; });
   }*/
 
   //Recherche 4
   findByReference() {
-    this.affaireService.findByReference(this.reference).subscribe(data => { this.affairesRecherche = data; });
+    if (this.reference == '') {
+      this.affaireService.findAll().subscribe(data => { this.affairesRecherche = data; });
+    } else {
+      this.affaireService.findAll().subscribe(
+        data => {
+          this.affairesRecherche = data.filter(affaire => affaire.reference == this.reference);
+        });
+    }
   }
 
   saveAffaire() {
@@ -58,14 +63,13 @@ export class AffaireComponent implements OnInit {
   }
 
   deleteAffaire(id: number) {
-    this.affaireService.delete(id).subscribe(() => { /*this.findAllAffaires()*/ this.findByReference(); });
+    this.affaireService.delete(id).subscribe(() => { /*this.findAllAffaires()*/ this.findByReference() });
   }
 
   editAffaire(affaire: Affaire) {
-    localStorage.removeItem("editAffaireRef");
-    localStorage.setItem("editAffaireRef", affaire.reference);
-    this.router.navigate(['/editAffaire', affaire.reference]);
-    console.log(affaire.reference)
+    localStorage.removeItem("editAffaireId");
+    localStorage.setItem("editAffaireId", affaire.idAffaire.toString());
+    this.router.navigate(['affaires/editAffaire', affaire.idAffaire]);
   }
 
   // Authentification
