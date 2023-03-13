@@ -17,6 +17,7 @@ import { TachesComponent } from './pages/taches/taches.component';
 import { HttpClientModule } from "@angular/common/http";
 import { TribunauxComponent } from './pages/tribunaux/tribunaux.component';
 import { EditAffaireComponent } from './pages/edit/edit-affaire/edit-affaire.component';
+import { EditTacheComponent } from './pages/edit-tache/edit-tache.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { EditAffaireComponent } from './pages/edit/edit-affaire/edit-affaire.com
     AppComponent,
     AdminLayoutComponent,
     EditAffaireComponent,
+    EditTacheComponent
 
   ],
   imports: [

@@ -19,6 +19,7 @@ export class EditAffaireComponent implements OnInit {
 
   ngOnInit(): void {
     let currentAffaire = localStorage.getItem("editAffaireRef");
+    console.log(currentAffaire);
     if (!currentAffaire) {
       alert("Invalid Action");
       this.routeur.navigate(["/affaire"])

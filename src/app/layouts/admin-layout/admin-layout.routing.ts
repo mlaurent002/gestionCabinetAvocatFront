@@ -15,6 +15,7 @@ import { LogoutComponent } from 'app/pages/logout/logout.component';
 import { TachesComponent } from 'app/pages/taches/taches.component';
 import { TribunauxComponent } from 'app/pages/tribunaux/tribunaux.component';
 import { EditAffaireComponent } from 'app/pages/edit/edit-affaire/edit-affaire.component';
+import { EditTacheComponent } from 'app/pages/edit-tache/edit-tache.component';
 
 
 
@@ -34,5 +35,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'tache', component: TachesComponent },
     { path: 'tribunaux', component: TribunauxComponent },
     { path: 'editAffaire/:ref', component: EditAffaireComponent },
+    { path: 'editTache/:ref', component: EditTacheComponent },
 
 ];
