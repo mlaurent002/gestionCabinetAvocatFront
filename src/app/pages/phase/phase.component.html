@@ -36,7 +36,7 @@
                             <div class="form-group">
                                 <label>Date de fin</label>
                                 <input type="date" class="form-control" [(ngModel)]="phase.dateFin" name="dateFin"
-                                    placeholder="Date de fin">
+                                    placeholder="Date de fin" [min]="phase.dateDebut">
                             </div>
                         </div>
                     </div>

@@ -9,11 +9,10 @@ export interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-
-    { path: '/affaires', title: 'Affaires', icon: 'nc-box', class: '' },
-    { path: '/tache', title: 'Taches', icon: 'nc-bullet-list-67', class: '' },
-    { path: '/utilisateur', title: 'Utilisateurs', icon: 'nc-single-02', class: '' },
     { path: '/dashboard', title: 'Dashboard', icon: 'nc-tv-2', class: '' },
+    { path: '/utilisateur', title: 'Utilisateurs', icon: 'nc-single-02', class: '' },
+    { path: '/tache', title: 'Taches', icon: 'nc-bullet-list-67', class: '' },
+    { path: '/affaires', title: 'Affaires', icon: 'nc-box', class: '' },
     { path: '/tribunaux', title: 'Tribunaux', icon: 'nc-bank', class: '' },
     //{ path: '/phases', title: 'Phases', icon: 'nc-vector', class: '' },
     { path: '/icons', title: 'Icons', icon: 'nc-diamond', class: '' },
