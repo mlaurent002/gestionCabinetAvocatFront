@@ -5,7 +5,7 @@
                 <h5 class="card-title">Ajouter une affaire</h5>
             </div>
             <div class="card-body">
-                <form [formGroup]="editForm">
+                <form [formGroup]="editFormAffaire">
                     <div class="row">
                         <div class="col-md-6 pr-1">
                             <div class="form-group">
@@ -47,6 +47,126 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Affichage liste-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Liste des documents</h4>
+            </div>
+            <div class="col-md-6 pr-1">
+                <button [hidden]="!hideFormAddDocument" class="btn btn-primary btn-round"
+                    (click)="hideFormDocument()">Ajouter un document</button>
+                <button [hidden]="hideFormAddDocument" class="btn btn-secondary btn-round"
+                    (click)="hideFormDocument()">Annuler l'ajout d'un document</button>
+            </div>
+            <div [hidden]="hideFormAddDocument" class="col-md-12">
+                <div class="card card-user">
+                    <div class="card-header">
+                        <h5 class="card-title">Ajouter un document</h5>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="saveDocument()">
+                            <div class="row">
+                                <div class="col-md-12 pr-1">
+                                    <div class="form-group">
+                                        <label>Nom</label>
+                                        <input class="form-control" type="text" [(ngModel)]="document.nom" name="nom"
+                                            placeholder="Nom du document">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 pr-1">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control" [(ngModel)]="document.description"
+                                            name="description" placeholder="Description"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 pr-1">
+                                    <div class="form-group">
+                                        <p *ngIf="currentFileUpload != null">{{ currentFileUpload.name }}
+                                        </p>
+                                        <button class="btn btn-primary btn-round">Charger un fichier <input
+                                                class="form-control" type="file" (change)="selectFile($event)"
+                                                name="documentFile" /></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="update ml-auto mr-auto">
+                                    <button type="submit" class="btn btn-primary btn-round">Ajouter</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div [hidden]="hideFormEditDocumentv" class="card-body">
+                <form [formGroup]="editFormDocument">
+                    <div class="row">
+                        <div class="col-md-12 pr-1">
+                            <div class="form-group">
+                                <label>Nom</label>
+                                <input type="text" class="form-control" [(ngModel)]="document.nom" formControlName="nom"
+                                    placeholder="Nom du document">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 pr-1">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" [(ngModel)]="document.description"
+                                    formControlName="description" placeholder="Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12 pr-1">
+                            <div class="form-group">
+                                <p *ngIf="currentFileUpload != null">{{ currentFileUpload.name }}
+                                </p>
+                                <button class="btn btn-primary btn-round">Charger un fichier <input class="form-control"
+                                        type="file" (change)="selectFile($event)" name="documentFile" /></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                            <button class="btn btn-primary btn-round" (click)="updateDocument()">Update</button>
+                            <button class="btn btn-secondary btn-round"
+                                (click)="hideFormEditDocument(true)">Annuler</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>Date de création</th>
+                            <th>Nom</th>
+                            <th>Description</th>
+                            <th>Fichier</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let d of documents">
+                                <td>{{d.dateCreation}}</td>
+                                <td>{{d.nom}}</td>
+                                <td>{{d.description}}</td>
+                                <td></td>
+                                <td>
+                                    <button class="btn btn-danger btn-round"
+                                        (click)="deleteDocument(d.idDocument)">Delete</button>
+                                    <button class="btn btn-primary btn-round" (click)="editDocument(d)">Edit</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
