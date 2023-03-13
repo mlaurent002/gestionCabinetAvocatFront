@@ -157,7 +157,12 @@
                                 <td>{{d.dateCreation}}</td>
                                 <td>{{d.nom}}</td>
                                 <td>{{d.description}}</td>
-                                <td></td>
+                                <td>
+                                    <button *ngIf="d.documentFile != null"
+                                        class="btn btn-default btn-fab btn-icon btn-round">
+                                        <i class="fa-solid fa-file"></i>
+                                    </button>
+                                </td>
                                 <td>
                                     <button class="btn btn-danger btn-round"
                                         (click)="deleteDocument(d.idDocument)">Delete</button>
