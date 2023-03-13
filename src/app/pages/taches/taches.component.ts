@@ -81,13 +81,7 @@ export class TachesComponent implements OnInit {
     })
 
   }
-  findAllPhase() {
-    //subsribe : utilisation de l'expression lambda
-    //data -> {this.users = data}
-    this.affaireService.findAll().subscribe(data => {
-      this.affaires = data
-    })
-  }
+
 
   findAllTribunaux() {
     //subsribe : utilisation de l'expression lambda
