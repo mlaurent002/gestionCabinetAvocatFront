@@ -14,14 +14,12 @@ import { AppRoutes } from './app.routing';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { EditAffaireDocumentComponent } from './pages/edit/edit-affaire-document/edit-affaire-document.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    EditAffaireDocumentComponent,
 
   ],
   imports: [

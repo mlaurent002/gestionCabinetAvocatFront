@@ -15,8 +15,8 @@ export class TribunalService {
   }
 
   //save -> verbe http : POST --> url : BASE_URL + Body
-  public save(affaire: any): Observable<any> {
-    return this.httpClient.post(this.BASE_URL, affaire);
+  public save(tribunal: any): Observable<any> {
+    return this.httpClient.post(this.BASE_URL, tribunal);
   }
 
   //delete --> verbe http : DELETE --> url : BASE_URL/id
@@ -29,10 +29,10 @@ export class TribunalService {
     return this.httpClient.get(this.BASE_URL + "/" + id);
   }
 
-  //update --> verbe http : PUT --> url : BASE_URL/id et dans le body l'objet affaire
-  public update(affaire: any): Observable<any> {
-    var affaireJSON = JSON.parse(affaire);
-    return this.httpClient.put(this.BASE_URL + '/' + affaireJSON.idAffaire, affaireJSON);
+  //update --> verbe http : PUT --> url : BASE_URL/id et dans le body l'objet tribunal
+  public update(tribunal: any): Observable<any> {
+    var tribunalJSON = JSON.parse(tribunal);
+    return this.httpClient.put(this.BASE_URL + '/' + tribunalJSON.idTribunal, tribunalJSON);
   }
 
   //findByReference with reference --> verbe http : GET --> ulr : BASE_URL/reference
