@@ -1,46 +1,28 @@
-<!-- Formulaire d'ajout début-->
-<div class="container-fluid mt--7" style="background-color: white;">
-    <div>
-        <div>
-            <div>
-                <div>
-                    <div>
-                        <h4 style="color: chocolate;">Ajout d'un utilisateur</h4>
-                    </div>
-                </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-user">
+            <div class="card-header">
+                <h5 class="card-title">Ajouter un utilisateur</h5>
             </div>
             <div class="card-body">
                 <form (ngSubmit)="saveUtilisateur()">
-                    <h5 class="heading-small text-muted mb-4">Informations des utilisateurs</h5>
-                    <div class="pl-lg-4">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group" style="border: 5px; border-color: chocolate;">
-                                    <label class="form-control-label" for="input-first-name"
-                                        style=" color: black;">Nom</label>
-                                    <input type="text" [(ngModel)]="utilisateur.nomUtilisateur" name="nomUtilisateur"
-                                        id="input-first-name" class="form-control form-control-alternative"
-                                        placeholder="Nom " value="Lucky">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group"> <label class="form-control-label" for="input-last-name"
-                                        style=" color: black;">Prénom</label> <input type="text"
-                                        [(ngModel)]="utilisateur.prenomUtilisateur" name="prenomUtilisateur"
-                                        id="input-last-name" class="form-control form-control-alternative"
-                                        placeholder="Prénom" value="Luck"> </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group" style="border: 5px; border-color: chocolate;">
+                                <label class="form-control-label" for="input-first-name"
+                                    style=" color: black;">Nom</label>
+                                <input type="text" [(ngModel)]="utilisateur.nomUtilisateur" name="nomUtilisateur"
+                                    id="input-first-name" class="form-control form-control-alternative"
+                                    placeholder="Nom " value="Lucky">
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="form-group"> <label class="form-control-label" for="input-email"
-                                    style=" color: black;">Email
-                                    address</label> <input type="email" [(ngModel)]="utilisateur.emailUtilisateur"
-                                    name="emailUtilisateur" id="input-email"
-                                    class="form-control form-control-alternative" placeholder="ex : jean.yves@oui.com">
-                            </div>
+                            <div class="form-group"> <label class="form-control-label" for="input-last-name"
+                                    style=" color: black;">Prénom</label> <input type="text"
+                                    [(ngModel)]="utilisateur.prenomUtilisateur" name="prenomUtilisateur"
+                                    id="input-last-name" class="form-control form-control-alternative"
+                                    placeholder="Prénom" value="Luck"> </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group"> <label class="form-control-label" for="input-username"
                                     style=" color: black;">Nom d'utilisateur</label> <input type="text"
@@ -58,6 +40,14 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
+                            <div class="form-group"> <label class="form-control-label" for="input-email"
+                                    style=" color: black;">Email
+                                    address</label> <input type="email" [(ngModel)]="utilisateur.emailUtilisateur"
+                                    name="emailUtilisateur" id="input-email"
+                                    class="form-control form-control-alternative" placeholder="ex : jean.yves@oui.com">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
                             <div class="form-group"> <label class="form-control-label" for="input-password"
                                     style=" color: black;">Role</label>
                                 <select class="form-control form-control-alternative" multiple name="roles"
@@ -67,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <div> <button class="btn btn-danger" style="background-color: chocolate;">Ajouter</button>
+                    <div> <button type="submit" class="btn btn-primary btn-round">Ajouter</button>
                     </div>
                 </form>
             </div>
@@ -76,13 +66,13 @@
 </div>
 <!-- Formulaire d'ajout fin-->
 <!-- Afficher les données début-->
-<div class="container-fluid mt--7">
-    <div class="row">
-        <div class="col">
-            <div class="card shadow">
-                <div class="card-header border-0">
-                    <h4 style="color: chocolate;">Liste des utilisateurs</h4>
-                </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Liste des utilisateurs</h4>
+            </div>
+            <div class="card-body">
                 <!--Recherche-->
                 <form (ngSubmit)="onSubmit()">
                     <div class="col-md-6">
@@ -91,9 +81,8 @@
                                 <input type="text" class="form-control" [(ngModel)]="nomUtilisateur"
                                     name="nomUtilisateur" placeholder="Nom de la personne">
                             </div>
-                            <div>
-                                <button type="submit" class="btn btn-primary btn-round"
-                                    style="background-color: chocolate">Recherche</button>
+                            <div style=" margin-bottom: px; margin-left: 10px;">
+                                <button type="submit" class="btn btn-primary btn-round">Recherche</button>
                             </div>
                         </div>
                     </div>
@@ -101,14 +90,15 @@
                 <!--Fin Recherche-->
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
-                        <thead class="thead-light">
+                        <thead style="background-color: white;">
                             <tr>
                                 <th>Nom</th>
                                 <th>Prénom</th>
                                 <th>Nom d'utilisateur</th>
-                                <th>Mot de passe (crypté)</th>
+                                <!--<th>Mot de passe (crypté)</th>-->
                                 <th>Role</th>
-                                <th>Action</th>
+                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -116,13 +106,14 @@
                                 <td>{{u.nomUtilisateur}}</td>
                                 <td>{{u.prenomUtilisateur}}</td>
                                 <td>{{u.username}}</td>
-                                <td>{{u.password}}</td>
+                                <!--<td>{{u.password}}</td>-->
                                 <td>
                                     <p style="margin: 0px;" *ngFor="let r of u.roles">{{r.libelle}}</p>
                                 </td>
-                                <td> <button (click)="deleteUtilisateur(u.idUtilisateur)"
-                                        style="background-color: chocolate; color: white;">Supprimer</button>
-                                    <button (click)="editUtilisateur(u)">Editer</button>
+                                <td> <button (click)="deleteUtilisateur(u.idUtilisateur)" type="submit"
+                                        class="btn btn-primary btn-round">Supprimer</button>
+                                    <button (click)="editUtilisateur(u)" type="submit"
+                                        class="btn btn-primary btn-round">Editer</button>
                                 </td>
                         </tbody>
                     </table>
