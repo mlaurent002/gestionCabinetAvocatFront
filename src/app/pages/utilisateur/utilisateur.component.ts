@@ -6,6 +6,7 @@ import { UtilisateurService } from 'app/services/utilisateur.service';
 import { AppService } from 'app/app.service';
 import { HttpClient } from '@angular/common/http';
 import { Role } from 'app/models/role';
+import { Observable } from 'rxjs';
 
 
 @Component({

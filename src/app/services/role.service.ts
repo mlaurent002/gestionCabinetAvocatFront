@@ -25,6 +25,6 @@ export class RoleService {
     return this.httpClient.put(this.BASE_URL + "/" + roleJSON.idrole, roleJSON);
   }
   public getRoles(): Observable<Role[]> {
-    return this.httpClient.get<Role[]>(`${this.BASE_URL}/roles`);
+    return this.httpClient.get<Role[]>(`${this.BASE_URL}`);
   }
 }

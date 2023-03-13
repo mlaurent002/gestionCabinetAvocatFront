@@ -29,9 +29,9 @@ import { LogoutComponent } from 'app/pages/logout/logout.component';
 import { TacheService } from 'app/services/tache.service';
 import { TribunauxComponent } from 'app/pages/tribunaux/tribunaux.component';
 import { TribunalService } from 'app/services/tribunal.service';
-import { EditAffaireComponent } from 'app/pages/edit/edit-affaire/edit-affaire.component';
 import { DocumentComponent } from 'app/pages/document/document.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditAffaireComponent } from 'app/pages/edit/edit-affaire/edit-affaire.component';
 import { EditUtilisateurComponent } from 'app/pages/edit/edit-utilisateur/edit-utilisateur.component';
 
 
@@ -72,7 +72,7 @@ export class XhrInterceptor implements HttpInterceptor {
     TribunauxComponent,
     DocumentComponent,
     EditAffaireComponent,
-    EditUtilisateurComponent,
+    EditUtilisateurComponent
 
   ],
 
