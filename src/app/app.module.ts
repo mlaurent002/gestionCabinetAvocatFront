@@ -17,13 +17,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { TribunauxComponent } from './pages/tribunaux/tribunaux.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
-
 
   ],
   imports: [
