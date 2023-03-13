@@ -14,6 +14,7 @@ import { AppRoutes } from './app.routing';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { TribunauxComponent } from './pages/tribunaux/tribunaux.component';
 
 
 @NgModule({

@@ -29,10 +29,12 @@ import { LogoutComponent } from 'app/pages/logout/logout.component';
 import { TacheService } from 'app/services/tache.service';
 import { TribunauxComponent } from 'app/pages/tribunaux/tribunaux.component';
 import { TribunalService } from 'app/services/tribunal.service';
-import { EditAffaireComponent } from 'app/pages/edit/edit-affaire/edit-affaire.component';
 import { DocumentComponent } from 'app/pages/document/document.component';
+import { EditAffaireComponent } from 'app/pages/edit/edit-affaire/edit-affaire.component';
 import { EditUtilisateurComponent } from 'app/pages/edit/edit-utilisateur/edit-utilisateur.component';
 import { EditTacheComponent } from 'app/pages/edit-tache/edit-tache.component';
+import { PhaseComponent } from 'app/pages/phase/phase.component';
+import { EditPhaseComponent } from 'app/pages/edit/edit-phase/edit-phase.component';
 
 
 
@@ -73,7 +75,10 @@ export class XhrInterceptor implements HttpInterceptor {
     DocumentComponent,
     EditAffaireComponent,
     EditUtilisateurComponent,
+    EditUtilisateurComponent,
     EditTacheComponent,
+    PhaseComponent,
+    EditPhaseComponent,
 
   ],
 

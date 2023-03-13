@@ -18,6 +18,8 @@ import { EditAffaireComponent } from 'app/pages/edit/edit-affaire/edit-affaire.c
 import { EditTacheComponent } from 'app/pages/edit-tache/edit-tache.component';
 import { EditUtilisateurComponent } from 'app/pages/edit/edit-utilisateur/edit-utilisateur.component';
 import { DocumentComponent } from 'app/pages/document/document.component';
+import { PhaseComponent } from 'app/pages/phase/phase.component';
+import { EditPhaseComponent } from 'app/pages/edit/edit-phase/edit-phase.component';
 
 
 
@@ -36,9 +38,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'logout', component: LogoutComponent },
     { path: 'tache', component: TachesComponent },
     { path: 'tribunaux', component: TribunauxComponent },
+    { path: 'tache/:id/phases', component: PhaseComponent },
     { path: 'editTache/:ref', component: EditTacheComponent },
     { path: 'editUtilisateur/:id', component: EditUtilisateurComponent },
     { path: 'affaires/document', component: DocumentComponent },
     { path: 'affaires/editAffaire/:id', component: EditAffaireComponent },
+    { path: 'phases/editPhase/:idEdit', component: EditPhaseComponent },
 
 ];

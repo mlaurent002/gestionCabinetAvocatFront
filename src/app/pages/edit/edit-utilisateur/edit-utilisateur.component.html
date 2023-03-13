@@ -1,1 +1,59 @@
-<p>edit-utilisateur works!</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-user">
+            <div class="card-header">
+                <h5 class="card-title">Utilisateur</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="editForm">
+                    <div class="row">
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group" style="border: 5px; border-color: chocolate;">
+                                <label style=" color: black;">Nom</label>
+                                <input type="text" formControlName="nomUtilisateur"
+                                    [(ngModel)]="utilisateur.nomUtilisateur" class="form-control" placeholder="Nom">
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-1">
+                            <div class="form-group"> <label style=" color: black;">Prénom</label>
+                                <input type="text" [(ngModel)]="utilisateur.prenomUtilisateur"
+                                    formControlName="prenomUtilisateur" class="form-control" placeholder="Prénom">
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group"> <label style=" color: black;">Adresse email</label>
+                                <input type="email" [(ngModel)]="utilisateur.emailUtilisateur"
+                                    formControlName="emailUtilisateur" class="form-control"
+                                    placeholder="ex : jean.yves@oui.com">
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-1">
+                            <div class="form-group"> <label style=" color: black;">Nom d'utilisateur</label>
+                                <input type="text" [(ngModel)]="utilisateur.username" formControlName="username"
+                                    class="form-control" placeholder="Nom d'utilisateur">
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group"> <label style=" color: black;">Mot de passe</label> <input
+                                    type="text" [(ngModel)]="utilisateur.password" formControlName="password"
+                                    class="form-control" placeholder="mot de passe">
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group"> <label style=" color: black;">Role</label>
+                                <select class="form-control" multiple name="roles" [(ngModel)]="utilisateur.roles">
+                                    <option *ngFor="let r of roles" [ngValue]="r">{{r.libelle}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div>
+                        <button class="btn btn-primary btn-round" (click)="updateUtilisateur()">Mettre à jour</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

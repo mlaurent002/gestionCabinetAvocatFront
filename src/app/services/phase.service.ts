@@ -5,18 +5,19 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class TribunalService {
-  private BASE_URL = "http://localhost:9090/tribunaux";
+export class PhaseService {
+  private BASE_URL = "http://localhost:9090/phases";
 
   constructor(private httpClient: HttpClient) { }
+
   //findAll -> verbe http : GET --> url : BASE_URL
   public findAll(): Observable<any> {
     return this.httpClient.get(this.BASE_URL);
   }
 
   //save -> verbe http : POST --> url : BASE_URL + Body
-  public save(tribunal: any): Observable<any> {
-    return this.httpClient.post(this.BASE_URL, tribunal);
+  public save(phase: any): Observable<any> {
+    return this.httpClient.post(this.BASE_URL, phase);
   }
 
   //delete --> verbe http : DELETE --> url : BASE_URL/id
@@ -29,14 +30,10 @@ export class TribunalService {
     return this.httpClient.get(this.BASE_URL + "/" + id);
   }
 
-  //update --> verbe http : PUT --> url : BASE_URL/id et dans le body l'objet tribunal
-  public update(tribunal: any): Observable<any> {
-    var tribunalJSON = JSON.parse(tribunal);
-    return this.httpClient.put(this.BASE_URL + '/' + tribunalJSON.idTribunal, tribunalJSON);
+  //update --> verbe http : PUT --> url : BASE_URL/id et dans le body l'objet phase
+  public update(phase: any): Observable<any> {
+    var affaireJSON = JSON.parse(phase);
+    return this.httpClient.put(this.BASE_URL + '/' + affaireJSON.idAffaire, affaireJSON);
   }
 
-  //findByReference with reference --> verbe http : GET --> ulr : BASE_URL/reference
-  public findByReference(reference: string): Observable<any> {
-    return this.httpClient.get(this.BASE_URL + "/" + reference);
-  }
 }

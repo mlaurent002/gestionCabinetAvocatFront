@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Utilisateur } from "app/models/utilisateur";
 import { Observable } from "rxjs";
 
 @Injectable({
@@ -23,16 +24,21 @@ export class UtilisateurService {
   }
 
   public findOne(id: number): Observable<any> {
-    return this.httpClient.get(this.BASE_URL + '/' + id);
+    return this.httpClient.get(this.BASE_URL + "/" + id);
   }
 
   public update(utilisateur: any): Observable<any> {
     var utilisateurJSON = JSON.parse(utilisateur);
-    return this.httpClient.put(this.BASE_URL + '/' + utilisateurJSON.reference, utilisateurJSON);
+    return this.httpClient.put(this.BASE_URL + "/" + utilisateurJSON.reference, utilisateurJSON);
   }
 
   //Tentative pour la recherche spécifique :
   public findByNomUtilisateur(nomUtilisateur: string): Observable<any> {
     return this.httpClient.get(this.BASE_URL + "/" + nomUtilisateur);
+  }
+
+  //tentative edit: 
+  getUserById(id: number): Observable<Utilisateur> {
+    return this.httpClient.get<Utilisateur>(`${this.BASE_URL}/${id}`);
   }
 }

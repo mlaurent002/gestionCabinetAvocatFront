@@ -9,6 +9,8 @@ import { AffaireService } from 'app/services/affaire.service';
 import { TacheService } from 'app/services/tache.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
 import { TribunalService } from 'app/services/tribunal.service';
+import { AppService } from 'app/app.service';
+
 @Component({
   selector: 'app-taches',
   templateUrl: './taches.component.html',
@@ -27,17 +29,24 @@ export class TachesComponent implements OnInit {
   tribunaux!: Tribunal[];
 
 
-  constructor(private tribunalService: TribunalService, private tacheService: TacheService, private utilisateurService: UtilisateurService, private affaireService: AffaireService, private httpClient: HttpClient, private router: Router) { }
+  constructor(private tribunalService: TribunalService, private tacheService: TacheService, private utilisateurService: UtilisateurService, private affaireService: AffaireService, private httpClient: HttpClient, private router: Router, private appService: AppService) { }
 
   ngOnInit(): void {
-    this.findAllTaches();
-    this.findAllAffaire();
-    this.findAllUtilisateur();
-    this.tachesRecherche = [];
+    if (this.authenticated() === false) {
+      this.router.navigateByUrl("/login")
+    } else {
+      this.findAllTaches();
+      this.findAllAffaire();
+      this.findAllUtilisateur();
+      this.findAllTribunaux();
+      this.tachesRecherche = [];
+    }
   }
 
 
-
+  authenticated() {
+    return this.appService.authenticated; // authenticated = false par défaut
+  }
   saveTache() {
     this.tacheService.save(this.tache).subscribe(
       () => {
@@ -52,6 +61,7 @@ export class TachesComponent implements OnInit {
   submitTache() {
     this.tache.utilisateurFK = this.utilisateur;
     this.tache.affaireFK2 = this.affaireFK2;
+    this.tache.tribunalFK = this.tribunalFK;
     this.saveTache();
   }
 
@@ -68,6 +78,16 @@ export class TachesComponent implements OnInit {
     //data -> {this.users = data}
     this.affaireService.findAll().subscribe(data => {
       this.affaires = data
+    })
+
+  }
+
+
+  findAllTribunaux() {
+    //subsribe : utilisation de l'expression lambda
+    //data -> {this.users = data}
+    this.tribunalService.findAll().subscribe(data => {
+      this.tribunaux = data
     })
 
   }
@@ -92,8 +112,21 @@ export class TachesComponent implements OnInit {
 
   onSubmit() {
     this.tachesRecherche = []
-    this.taches.forEach(e => { if (e.titreTache == this.titretache) { console.log(this.taches); this.tachesRecherche.push(e) } })
+    if (this.titretache == '') {
+      this.tacheService.findAll().subscribe(data => { this.tachesRecherche = data; });
+    } else {
+      this.affaireService.findAll().subscribe(
+        data => {
+          this.taches.forEach(e => { if (e.titreTache == this.titretache) { console.log(this.taches); this.tachesRecherche.push(e) } })
+        });
+
+    }
+  }
+  //Voir la liste des phases
+  listPhase(idTache: number) {
+    localStorage.removeItem("tacheId");
+    localStorage.setItem("tacheId", idTache.toString());
+    this.router.navigate(['/tache', idTache, 'phases']);
 
   }
-
 }
