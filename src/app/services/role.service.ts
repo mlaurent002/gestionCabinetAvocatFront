@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Role } from 'app/models/role';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -22,5 +23,8 @@ export class RoleService {
   public update(role: any): Observable<any> {
     var roleJSON = JSON.parse(role);
     return this.httpClient.put(this.BASE_URL + "/" + roleJSON.idrole, roleJSON);
+  }
+  public getRoles(): Observable<Role[]> {
+    return this.httpClient.get<Role[]>(`${this.BASE_URL}/roles`);
   }
 }

@@ -1,5 +1,5 @@
 import { Role } from "./role";
-//import { Tache } from "./tache";
+import { Tache } from "./tache";
 
 export class Utilisateur {
     idUtilisateur!: number;
@@ -7,7 +7,7 @@ export class Utilisateur {
     prenomUtilisateur!: string;
     emailUtilisateur!: string;
     roles!: Role[];
-    //taches!: Tache[];
+    taches!: Tache[];
     username!: string;
     password!: string;
 }
