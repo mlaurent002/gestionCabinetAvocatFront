@@ -38,7 +38,7 @@ export class UtilisateurService {
   }
 
   //tentative edit: 
-  getUserById(id: number): Observable<Utilisateur> {
+  /*getUserById(id: number): Observable<Utilisateur> {
     return this.httpClient.get<Utilisateur>(`${this.BASE_URL}/${id}`);
-  }
+  }*/
 }
