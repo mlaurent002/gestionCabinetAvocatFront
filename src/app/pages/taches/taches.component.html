@@ -10,7 +10,7 @@
                         <div class="col-md-6 pr-1">
                             <div class="form-group">
                                 <label>date</label>
-                                <input type="text" class="form-control" [(ngModel)]="tache.dateCreation" name="date"
+                                <input type="date" class="form-control" [(ngModel)]="tache.dateCreation" name="date"
                                     placeholder="date">
                             </div>
                         </div>
@@ -44,8 +44,8 @@
                                 <label>utilisateur</label>
                                 <select class="form-control form-control-alternative" name="Doctor"
                                     [(ngModel)]="utilisateur" value="">
-                                    <option *ngFor="let i of utilisateurs" [ngValue]="u">
-                                        {{i.nomUtilisateur}} {{u.prenomUtilisateur}}
+                                    <option *ngFor="let i of utilisateurs" [ngValue]="i">
+                                        {{i.nomUtilisateur}} {{i.prenomUtilisateur}}
                                     </option>
                                 </select>
                             </div>
@@ -107,6 +107,8 @@
                                 <td>
                                     <button class="btn btn-primary btn-round"
                                         (click)="deleteTache(a.idTache)">Delete</button>
+                                    <button class="btn btn-primary btn-round"
+                                        (click)="editTache(a.idTache)">edit</button>
                                 </td>
 
                             </tr>

@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-user">
+            <div class="card-header">
+                <h5 class="card-title">Ajouter une Tache</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="editForm">
+                    <div class="row">
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>date</label>
+                                <input type="date" class="form-control" [(ngModel)]="tache.dateCreation"
+                                    formControlName="dateCreation" placeholder="dateCreation">
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-1">
+                            <div class="form-group">
+                                <label>Titre</label>
+                                <input type="text" class="form-control" [(ngModel)]="tache.titreTache"
+                                    formControlName="titreTache" placeholder="titreTache">
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" [(ngModel)]="tache.descriptionTache"
+                                    formControlName="descriptionTache" placeholder="descriptionTache"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Statut</label>
+                                <textarea class="form-control" [(ngModel)]="tache.statutAudience"
+                                    formControlName="statutAudience" placeholder="statutAudience"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                            <button class="btn btn-primary btn-round" (click)="updateTache()">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

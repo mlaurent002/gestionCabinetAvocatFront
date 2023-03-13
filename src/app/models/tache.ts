@@ -1,4 +1,5 @@
 import { Affaire } from "./affaire";
+import { Tribunal } from "./tribunal";
 import { Utilisateur } from "./utilisateur";
 
 export class Tache {
@@ -9,7 +10,7 @@ export class Tache {
     statutAudience: boolean;
     utilisateurFK: Utilisateur;
     affaireFK2: Affaire;
-    //tribunalFK: Tribunal;
+    tribunalFK: Tribunal;
     //phases: Phase[];
 
 }
