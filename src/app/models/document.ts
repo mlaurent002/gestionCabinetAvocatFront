@@ -6,4 +6,5 @@ export class Document {
     nom!: string;
     description!: string;
     affaireFK!: Affaire;
+    documentFile!: File;
 }
