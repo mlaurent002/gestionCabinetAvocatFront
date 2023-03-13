@@ -33,6 +33,7 @@ import { EditAffaireComponent } from 'app/pages/edit/edit-affaire/edit-affaire.c
 import { DocumentComponent } from 'app/pages/document/document.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditUtilisateurComponent } from 'app/pages/edit/edit-utilisateur/edit-utilisateur.component';
+import { EditTacheComponent } from 'app/pages/edit-tache/edit-tache.component';
 
 
 
@@ -73,6 +74,7 @@ export class XhrInterceptor implements HttpInterceptor {
     DocumentComponent,
     EditAffaireComponent,
     EditUtilisateurComponent,
+    EditTacheComponent,
 
   ],
 
