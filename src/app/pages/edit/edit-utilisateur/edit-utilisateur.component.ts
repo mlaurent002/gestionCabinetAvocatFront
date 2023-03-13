@@ -40,7 +40,7 @@ export class EditUtilisateurComponent implements OnInit {
     })
 
     //On remplit les champs vides
-    this.utilisateurService.getUserById(+currentUtilisateur).subscribe(data => { this.editForm.setValue(data); });
+    this.utilisateurService.findOne(+currentUtilisateur).subscribe(data => { this.editForm.setValue(data); });
   }
 
   /*MAJ des données*/

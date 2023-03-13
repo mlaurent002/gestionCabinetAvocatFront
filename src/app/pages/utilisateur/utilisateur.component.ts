@@ -6,7 +6,6 @@ import { UtilisateurService } from 'app/services/utilisateur.service';
 import { AppService } from 'app/app.service';
 import { HttpClient } from '@angular/common/http';
 import { Role } from 'app/models/role';
-import { Observable } from 'rxjs';
 
 
 @Component({
@@ -38,7 +37,6 @@ export class UtilisateurComponent implements OnInit {
       );
       this.saveUtilisateur();
     }
-    this.nomUtilisateur = '';
     this.findByNomUtilisateur();
     this.findAllRole();
     this.roleService.getRoles().subscribe(
@@ -55,8 +53,6 @@ export class UtilisateurComponent implements OnInit {
     this.utilisateurService.findAll().subscribe(data => { this.users = data; });
   }*/
 
-
-
   findAllRole() {
     this.roleService.findAll().subscribe(data => { this.roles = data; });
   }
@@ -70,16 +66,7 @@ export class UtilisateurComponent implements OnInit {
       }
     )
   }
-  /*saveUtilisateur() {
-    console.log(this.utilisateur);
-    this.utilisateurService.save(this.utilisateur).subscribe(
-      (data: Utilisateur) => {
-        this.utilisateur = new Utilisateur(); // réinitialiser l'utilisateur pour un nouvel ajout
-        console.log(data); // afficher l'utilisateur nouvellement ajouté dans la console
-      },
-      error => console.log(error)
-    );
-  }*/
+
   deleteUtilisateur(id: number) {
     this.utilisateurService.delete(id).subscribe(
       () => {
@@ -96,7 +83,14 @@ export class UtilisateurComponent implements OnInit {
 
   //Recherche ?
   findByNomUtilisateur() {
-    this.utilisateurService.findByNomUtilisateur(this.nomUtilisateur).subscribe(data => { this.nomUtilisateurRecherche = data; });
+    if (this.nomUtilisateur == '') {
+      this.utilisateurService.findAll().subscribe(data => { this.nomUtilisateurRecherche = data; });
+    } else {
+      this.utilisateurService.findAll().subscribe(
+        data => {
+          this.nomUtilisateurRecherche = data.filter(utilisateur => utilisateur.nomUtilisateur == this.nomUtilisateur);
+        });
+    }
   }
 
   // Authentification
