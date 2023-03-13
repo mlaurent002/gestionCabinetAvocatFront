@@ -10,6 +10,7 @@ import { TacheService } from 'app/services/tache.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
 import { TribunalService } from 'app/services/tribunal.service';
 import { AppService } from 'app/app.service';
+
 @Component({
   selector: 'app-taches',
   templateUrl: './taches.component.html',
@@ -80,6 +81,14 @@ export class TachesComponent implements OnInit {
     })
 
   }
+  findAllPhase() {
+    //subsribe : utilisation de l'expression lambda
+    //data -> {this.users = data}
+    this.affaireService.findAll().subscribe(data => {
+      this.affaires = data
+    })
+  }
+
   findAllTribunaux() {
     //subsribe : utilisation de l'expression lambda
     //data -> {this.users = data}
