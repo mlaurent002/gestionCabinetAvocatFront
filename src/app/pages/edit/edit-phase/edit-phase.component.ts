@@ -42,8 +42,9 @@ export class EditPhaseComponent implements OnInit {
 
   /*MAJ des données*/
   updatePhase() {
+    let idTache = localStorage.getItem("tacheId");
     var phaseJson = JSON.stringify(this.editForm.value);
-    this.phaseService.update(phaseJson).subscribe(() => { this.routeur.navigate(['/phases']) });
+    this.phaseService.update(phaseJson).subscribe(() => { this.routeur.navigate(['/tache', idTache, 'phases']) });
   }
 
 

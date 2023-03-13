@@ -21,7 +21,6 @@ import { HttpClientModule } from "@angular/common/http";
     AppComponent,
     AdminLayoutComponent,
 
-
   ],
   imports: [
     BrowserAnimationsModule,

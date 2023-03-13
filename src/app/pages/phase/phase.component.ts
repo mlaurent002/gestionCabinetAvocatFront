@@ -36,19 +36,26 @@ export class PhaseComponent implements OnInit {
       this.idTache = localStorage.getItem("tacheId");
       this.findTache(this.idTache);
       this.findAllPhases();
-
     }
 
 
   }
+
   //Récupération Tache 2
   findTache(id: number) {
     this.tacheService.findOne(id).subscribe(data => { this.tache = data; })
   }
 
+
   findAllPhases() {
-    this.phaseService.findAll().subscribe(data => { this.phases = data; });
+    //this.phaseService.findAll().subscribe(data => { this.phases = data; });
+    let idTache = localStorage.getItem("tacheId");
+    this.phaseService.findAll().subscribe(
+      data => {
+        this.phases = data.filter(phase => phase.tache_fk.idTache == this.idTache);
+      });
   }
+
 
 
   savePhase() {
@@ -60,14 +67,21 @@ export class PhaseComponent implements OnInit {
       });
   }
 
-  deletePhase(id: number) {
+  /*deletePhase(id: number) {
     this.phaseService.delete(id).subscribe(() => { this.findAllPhases() });
   }
 
   editPhase(phase: Phase) {
+    let idTache = localStorage.getItem("tacheId");
+    console.log("idTache");
+    console.log(idTache);
     localStorage.removeItem("editPhaseId");
     localStorage.setItem("editPhaseId", phase.idPhase.toString());
     this.router.navigate(['phases/editPhase', phase.idPhase]);
+  }*/
+
+  retourTaches() {
+    this.router.navigate(['tache',]);
   }
 
   // Authentification
