@@ -1,4 +1,5 @@
 import { Affaire } from "./affaire";
+import { Phase } from "./phase";
 import { Tribunal } from "./tribunal";
 import { Utilisateur } from "./utilisateur";
 

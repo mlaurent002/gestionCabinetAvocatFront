@@ -31,7 +31,7 @@
                         <div class="col-md-6 px-1">
                             <div class="form-group">
                                 <label>Affaire</label>
-                                <select class="form-control form-control-alternative" name="Doctor"
+                                <select class="form-control form-control-alternative" name="Affaire"
                                     [(ngModel)]="affaireFK2" value="">
                                     <option *ngFor="let u of affaires" [ngValue]="u">
                                         {{u.reference}} {{u.titre}}
@@ -42,7 +42,7 @@
                         <div class="col-md-6 px-1">
                             <div class="form-group">
                                 <label>utilisateur</label>
-                                <select class="form-control form-control-alternative" name="Doctor"
+                                <select class="form-control form-control-alternative" name="utilisateur"
                                     [(ngModel)]="utilisateur" value="">
                                     <option *ngFor="let i of utilisateurs" [ngValue]="i">
                                         {{i.nomUtilisateur}} {{i.prenomUtilisateur}}
@@ -50,7 +50,28 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-md-6 px-1">
+                            <div class="form-group">
+                                <label>tribunal</label>
+                                <select class="form-control form-control-alternative" name="Tribunal"
+                                    [(ngModel)]="tribunalFK" value="">
+                                    <option *ngFor="let t of tribunaux" [ngValue]="t">
+                                        {{t.adresse}} {{t.region}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Statut</label>
+                                <select [(ngModel)]="tache.statutAudience" name="statut" class="form-control">
+                                    <option value="true">A venir</option>
+                                    <option value="false">En cours</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="row">
                         <div class="update ml-auto mr-auto">
                             <button type="submit" class="btn btn-primary btn-round">Ajouter</button>
@@ -69,7 +90,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Liste des affaires</h4>
+                <h4 class="card-title">Liste des Taches</h4>
             </div>
             <div class="card-body">
                 <!--Recherche-->
